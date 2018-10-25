@@ -14,3 +14,17 @@
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/return', function() {
+    abort(404, 'Unauthorized action.');
+    return view('return');
+});
+
+
+Route::get('/dashboard', 'DashboardController@dashboard');
+Route::get('/item/add', 'DashboardController@add');
+Route::get('/item/leen', 'DashboardController@leen');
+Route::get('/item/beheer', 'DashboardController@beheer');
+Route::get('/item/my', 'DashboardController@my');
+
+Route::redirect('/item', '/dashboard');

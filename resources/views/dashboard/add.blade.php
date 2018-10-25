@@ -1,5 +1,5 @@
 @extends('template') 
-@section('title', 'return')
+@section('title', 'add')
 @section('content')
-<h1>return</h1>
+<h1>add</h1>
 @endsection
