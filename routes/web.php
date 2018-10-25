@@ -20,11 +20,15 @@ Route::get('/return', function() {
     return view('return');
 });
 
+Route::get('verify', function() {
+    return view('verify');
+});
 
-Route::get('/dashboard', 'DashboardController@dashboard');
+Route::get('/dashboard', 'DashboardController@dashboard')->middleware('verified');
 Route::get('/item/add', 'DashboardController@add');
 Route::get('/item/leen', 'DashboardController@leen');
 Route::get('/item/beheer', 'DashboardController@beheer');
 Route::get('/item/my', 'DashboardController@my');
 
 Route::redirect('/item', '/dashboard');
+Auth::routes(['verify' => true]);
