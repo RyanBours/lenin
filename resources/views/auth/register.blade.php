@@ -73,5 +73,6 @@
             </div>
         </div>
     </div>
+    <a href="/login" class="btn btn-leeuw">GA TERUG</a>
 </div>
 @endsection

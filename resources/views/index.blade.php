@@ -24,7 +24,7 @@
 						<hr class="my-4">
 						<button class="btn btn-lg btn-leeuw btn-block text-uppercase" type="submit">Scan je pasje</button>
 						<hr class="my-4">
-						<p class="text-center"><a href="" class="text-primary">Log in zonder NFC</a></p> 
+						<p class="text-center"><a href="/login" class="text-primary">Log in zonder NFC</a></p> 
 					</form>
 				</div>
 			</div>
