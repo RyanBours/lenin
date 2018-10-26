@@ -11,6 +11,7 @@ window.Popper = require('popper.js').default;
 try {
     window.$ = window.jQuery = require('jquery');
 
+    require('bootstrap');
     require('mdbootstrap');
 } catch (e) {}
 
