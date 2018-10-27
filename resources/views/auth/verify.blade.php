@@ -21,4 +21,11 @@
         </div>
     </div>
 </div>
+<a class="btn btn-leeuw" href="{{ route('logout') }}" onclick="event.preventDefault();
+    document.getElementById('logout-form').submit();">
+    terug
+</a>
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
 @endsection
