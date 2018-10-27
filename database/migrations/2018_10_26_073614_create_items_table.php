@@ -17,7 +17,7 @@ class CreateItemsTable extends Migration
             $table->increments('id');
             $table->string('nfc_code')->nullable();
             $table->string('name')->unique();
-            $table->integer('max_loan_duration');
+            $table->integer('max_loan_duration')->nullable();
             $table->timestamps();
         });
     }
