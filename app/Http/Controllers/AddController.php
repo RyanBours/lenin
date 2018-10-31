@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Item;
 use Illuminate\Http\Request;
 
 class AddController extends Controller {
@@ -22,6 +23,7 @@ class AddController extends Controller {
     public function post(Request $request) {
         $item = new Item;
         $item->name = $request->name;
+        $item->max_loan_duration = 0;
         $item->save();
 
         return redirect('item/add');
