@@ -17,10 +17,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/return', function() {
-    return view('return');
-});
-
 Route::get('/verified', function() {
     Auth::logout();
     return view('verified');
@@ -31,11 +27,20 @@ Route::get('/reseted', function() {
     return view('reseted');
 });
 
-Route::get('/dashboard', 'DashboardController@dashboard')->middleware('verified');
-Route::get('/item/add', 'DashboardController@add');
-Route::get('/item/leen', 'DashboardController@leen');
-Route::get('/item/beheer', 'DashboardController@beheer');
-Route::get('/item/my', 'DashboardController@my');
+Route::get('/dashboard', function() {
+    return view('dashboard.dashboard');
+})->middleware('verified');
+
+route::get('/item/add', 'AddController@index');
+route::post('/item/add/post', 'AddController@post');
+
+Route::get('/item/leen', 'LeenController@index');
+
+Route::get('/item/beheer', 'BeheerController@index');
+
+Route::get('/item/my', 'MyController@index');
+
+Route::get('/return', 'ReturnController@index');
 
 Route::redirect('/item', '/dashboard');
 Auth::routes(['verify' => true]);
