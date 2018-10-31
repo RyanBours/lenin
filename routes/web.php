@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,12 +18,17 @@ Route::get('/', function () {
 });
 
 Route::get('/return', function() {
-    abort(404, 'Unauthorized action.');
     return view('return');
 });
 
-Route::get('verify', function() {
-    return view('verify');
+Route::get('/verified', function() {
+    Auth::logout();
+    return view('verified');
+});
+
+Route::get('/reseted', function() {
+    Auth::logout();
+    return view('reseted');
 });
 
 Route::get('/dashboard', 'DashboardController@dashboard')->middleware('verified');
