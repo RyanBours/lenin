@@ -25,7 +25,7 @@ class LeenController extends Controller {
         $cart = session('cart');
 
         $item = Item::where('name', 'like', $request->id)->first();
-        if ($item && !in_array($item, $cart)) $request->session()->push('cart', $item);
+        if ($item && !in_array($item, $cart ? $cart : [])) $request->session()->push('cart', $item);
 
         $redirect = redirect('item/leen');
         if (!$item) $redirect->withErrors(['id'=>'Can\'t find '.$request->id]);
