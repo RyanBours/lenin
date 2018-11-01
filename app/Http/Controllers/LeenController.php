@@ -29,7 +29,7 @@ class LeenController extends Controller {
 
         $redirect = redirect('item/leen');
         if (!$item) $redirect->withErrors(['id'=>'Can\'t find '.$request->id]);
-        elseif (in_array($item, $cart)) $redirect->withErrors(['id'=>'already in cart '.$request->id]);
+        elseif (in_array($item, $cart ? $cart : [])) $redirect->withErrors(['id'=>$item->name.' is already in cart']);
         // elseif ($item->isGeleend) $redirect->withErrors(['id'=>'al geleend '.$request->id]);
         return $redirect;
     }
