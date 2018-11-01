@@ -15,14 +15,13 @@ class CreateItemUserLoansTable extends Migration
     {
         Schema::create('item_user_loans', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('start_date');
-            $table->date('end_date')->nullable(); // date - actually returned
-            $table->date('expected_end_date')->nullable(); // date - supposed returned
+            $table->timestamp('start_date');
+            $table->timestamp('end_date')->nullable(); // date - actually returned
+            $table->timestamp('expected_end_date')->nullable(); // date - supposed returned
             $table->boolean('returned')->default(false);
             $table->integer('user_id')->unsigned();
             $table->integer('item_id')->unsigned();
-
-            $table->timestamps();
+            $table->timestamp('updated_at')->nullable();
         });
 
         Schema::table('item_user_loans', function (Blueprint $table) {

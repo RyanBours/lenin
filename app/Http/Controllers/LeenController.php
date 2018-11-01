@@ -47,6 +47,7 @@ class LeenController extends Controller {
          * foreach session
          * add to item_loan
          * redirect success and clear cart
+         * App\loan::create(['user_id'=>1, 'item_id'=>1])
         */
     }
 }
