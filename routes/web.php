@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
+    if (Auth::check()) return redirect('/dashboard');
     return view('index');
 });
 
@@ -35,6 +36,7 @@ route::get('/item/add', 'AddController@index');
 route::post('/item/add/post', 'AddController@post');
 
 Route::get('/item/leen', 'LeenController@index');
+Route::post('item/leen/add', 'LeenController@add');
 
 Route::get('/item/beheer', 'BeheerController@index');
 
