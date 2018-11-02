@@ -56,7 +56,13 @@
 					</tbody>
 				</table>
 			</div>
-			<a class="btn btn-leeuw" href="">Confirm</a>
+            <a class="btn btn-leeuw" onclick="event.preventDefault();
+                document.getElementById('checkout-form').submit();">
+                Confirm checkout
+            </a>
+            <form id="checkout-form" action="/item/leen/checkout" method="POST" style="display: none;">
+                @csrf
+            </form>
 		</div>
 
 		<div class="col-2">
