@@ -34,12 +34,20 @@ class LeenController extends Controller {
         return $redirect;
     }
 
-    public function remove(Request $request) {
+    public function remove(Request $request, $item) {
         // remove from cart session
+        $cart = session()->pull('cart', []);
+        if(($key = array_search($item, $cart)) !== false) {
+            unset($cart[$key]);
+        }
+        session()->put('cart', $cart);
+        return redirect('item/leen');
     }
 
     public function remove_all() {
         // clears cart session
+        session()->pull('cart', []);
+        return redirect('item/leen');
     }
 
     public function checkout() {

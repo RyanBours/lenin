@@ -41,6 +41,7 @@
 							<th scope="col">start datum</th>
 							<th scope="col">eind datum</th>
 							<th scope="col">leen duur</th>
+							<th scope="col"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -51,6 +52,7 @@
 							<td>Cell</td>
 							<td>Cell</td>
 							<td>Cell</td>
+						<td><a class="btn btn-danger btn-sm m-0" href="/item/leen/remove/{{ $item }}"><i class="fas fa-times"></i></a></td>
 						</tr>
 						@endforeach
 					</tbody>

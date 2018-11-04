@@ -38,6 +38,7 @@ route::post('/item/add/post', 'AddController@post');
 Route::get('/item/leen', 'LeenController@index');
 Route::post('item/leen/add', 'LeenController@add');
 Route::post('item/leen/checkout', 'LeenController@checkout');
+Route::get('item/leen/remove/{item}', 'LeenController@remove');
 
 Route::get('/item/beheer', 'BeheerController@index');
 
