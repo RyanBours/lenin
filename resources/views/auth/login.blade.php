@@ -55,13 +55,11 @@
                                 <button type="submit" class="btn btn-leeuw btn-rounded mb-4">
                                     {{ __('Login') }}
                                 </button>
-                                <a href="" class="btn btn-leeuw btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">Registreer</a>
+                                <a href="" class="btn btn-leeuw btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">Register</a>
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
-                                
-                                
                             </div>
                         </div>
                     </form>
@@ -70,45 +68,45 @@
                     <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                                <div class="modal-header text-center">
-                                    <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body mx-3">
-                                    <form method="POST" id="register-form" action="{{ route('register') }}">
-                                        @csrf
-                                        <div class="md-form mb-5">
-                                            <i class="fa fa-user prefix grey-text"></i>
-                                            <input type="text" id="orangeForm-name" class="form-control validate" name="name">
-                                            <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
-                                        </div>
-                                        <div class="md-form mb-5">
-                                            <i class="fa fa-envelope prefix grey-text"></i>
-                                            <input type="email" id="orangeForm-email" class="form-control validate" name="email">
-                                            <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
-                                        </div>
-                        
-                                        <div class="md-form mb-4">
-                                            <i class="fa fa-lock prefix grey-text"></i>
-                                            <input type="password" id="orangeForm-pass" class="form-control validate" name="password">
-                                            <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
-                                        </div>
+                                <form method="POST" id="register-form" action="{{ route('register') }}">
+                                    @csrf
+                                    <div class="modal-header text-center">
+                                        <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body mx-3">
+                                        
+                                            <div class="md-form mb-5">
+                                                <i class="fa fa-user prefix grey-text"></i>
+                                                <input type="text" id="orangeForm-name" class="form-control validate" name="name">
+                                                <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
+                                            </div>
+                                            <div class="md-form mb-5">
+                                                <i class="fa fa-envelope prefix grey-text"></i>
+                                                <input type="email" id="orangeForm-email" class="form-control validate" name="email">
+                                                <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
+                                            </div>
+                            
+                                            <div class="md-form mb-4">
+                                                <i class="fa fa-lock prefix grey-text"></i>
+                                                <input type="password" id="orangeForm-pass" class="form-control validate" name="password">
+                                                <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
+                                            </div>
 
-                                        <div class="md-form mb-4">
-                                            <i class="fa prefix grey-text"></i>
-                                            <input type="password" id="password-confirm" class="form-control validate" name="password_confirmation">
-                                            <label data-error="wrong" data-success="right" for="orangeForm-confirm">Confirm your password</label>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer d-flex justify-content-center">
-                                    <a class="btn btn-leeuw" onclick="event.preventDefault();
-                                        document.getElementById('register-form').submit();">
-                                        Sign up
-                                    </a>
-                                </div>
+                                            <div class="md-form mb-4">
+                                                <i class="fa prefix grey-text"></i>
+                                                <input type="password" id="password-confirm" class="form-control validate" name="password_confirmation">
+                                                <label data-error="wrong" data-success="right" for="orangeForm-confirm">Confirm your password</label>
+                                            </div>
+                                    </div>
+                                    <div class="modal-footer d-flex justify-content-center">
+                                        <button class="btn btn-leeuw" type="submit">
+                                            Sign-up
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
