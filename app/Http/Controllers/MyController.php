@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Loan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MyController extends Controller {
     /**
@@ -15,6 +17,7 @@ class MyController extends Controller {
     }
 
     public function index() {
-        return view('dashboard.my');
+        $loans = loan::where('user_id', '=', Auth::id())->get();
+        return view('dashboard.my', compact('loans'));
     }
 }

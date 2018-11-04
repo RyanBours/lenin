@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Loan;
 use Illuminate\Http\Request;
 
 class BeheerController extends Controller {
@@ -15,6 +16,7 @@ class BeheerController extends Controller {
     }
 
     public function index() {
-        return view('dashboard.beheer');
+        $loans = loan::get();
+        return view('dashboard.beheer', compact('loans'));
     }
 }
