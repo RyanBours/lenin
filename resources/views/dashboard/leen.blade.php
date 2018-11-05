@@ -67,7 +67,7 @@
 					</tbody>
 				</table>
 			</div>
-            <a class="btn btn-leeuw" onclick="event.preventDefault();
+            <a class="btn btn-leeuw text-white" onclick="event.preventDefault();
                 document.getElementById('checkout-form').submit();">
                 Confirm checkout
             </a>
