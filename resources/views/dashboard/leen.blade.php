@@ -31,7 +31,16 @@
 		</div>
 
 		<div class="col-8">
-			<h1>Checkout</h1>
+			<div class="row">
+					<h1>Leen Checkout</h1>
+					<a class="btn btn-danger ml-auto" onclick="event.preventDefault();
+						document.getElementById('clear-form').submit();">
+						Clear
+					</a>
+					<form id="clear-form" action="/item/leen/clear" method="POST" style="display: none;">
+						@csrf
+					</form>
+				</div>
 			<div class="table-responsive text-nowrap">
 				<table class="table">
 					<thead>

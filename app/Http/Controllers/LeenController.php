@@ -16,16 +16,16 @@ class LeenController extends Controller {
     }
     
     public function index() {
-        $cart = session('cart');
+        $cart = session('cart_leen');
         return view('dashboard.leen', compact('cart'));
     }
 
     public function add(Request $request) {
         // add to cart session
-        $cart = session('cart');
+        $cart = session('cart_leen');
 
         $item = Item::where('name', 'like', $request->id)->first();
-        if ($item && !in_array($item, $cart ? $cart : [])) $request->session()->push('cart', $item);
+        if ($item && !in_array($item, $cart ? $cart : [])) $request->session()->push('cart_leen', $item);
 
         $redirect = redirect('item/leen');
         if (!$item) $redirect->withErrors(['id'=>'Can\'t find '.$request->id]);
@@ -36,17 +36,17 @@ class LeenController extends Controller {
 
     public function remove(Request $request, $item) {
         // remove from cart session
-        $cart = session()->pull('cart', []);
+        $cart = session()->pull('cart_leen', []);
         if(($key = array_search($item, $cart)) !== false) {
             unset($cart[$key]);
         }
-        session()->put('cart', $cart);
+        session()->put('cart_leen', $cart);
         return redirect('item/leen');
     }
 
-    public function remove_all() {
+    public function clear(Request $request) {
         // clears cart session
-        session()->pull('cart', []);
+        $request->session()->forget('cart_leen');
         return redirect('item/leen');
     }
 
