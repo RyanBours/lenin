@@ -16,6 +16,9 @@
 @endpush
 @section('content')
 
+@if(Session::has('status'))
+<div class="alert {{ session('alert-class') }}" role="alert">{{ session('status') }}</div>
+@endif
 
 <div class="container">
     <div class="row justify-content-center align-items-center mt-5">
@@ -45,7 +48,7 @@
                             <label for="NFC" class="col-md-4 col-form-label text-md-right">{{ __('NFC Code') }}</label>
 
                             <div class="col-md-6">
-                                <input id="NFC" type="text" class="form-control{{ $errors->has('NFC') ? ' is-invalid' : '' }}" name="NFC" value="{{ old('NFC') }}" required autofocus>
+                                <input id="NFC" type="text" class="form-control{{ $errors->has('NFC') ? ' is-invalid' : '' }}" name="NFC" value="{{ old('NFC') }}">
 
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback" role="alert">
@@ -59,7 +62,7 @@
                             <label for="Leenduur" class="col-md-4 col-form-label text-md-right">{{ __('Leenduur') }}</label>
 
                             <div class="col-md-6">
-                                <input id="Leenduur" type="text" class="form-control{{ $errors->has('Leenduur') ? ' is-invalid' : '' }}" name="Leenduur" value="{{ old('Leenduur') }}" required autofocus>
+                                <input id="Leenduur" type="text" class="form-control{{ $errors->has('Leenduur') ? ' is-invalid' : '' }}" name="Leenduur" value="{{ old('Leenduur') }}">
 
                                 @if ($errors->has('Leenduur'))
                                     <span class="invalid-feedback" role="alert">

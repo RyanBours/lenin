@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Item;
+use App\Http\Controllers\Session;
 use Illuminate\Http\Request;
 
 class AddController extends Controller {
@@ -24,8 +25,12 @@ class AddController extends Controller {
         $item = new Item;
         $item->name = $request->name;
         $item->max_loan_duration = 0;
-        $item->save();
+        $succ = $item->save();
 
+        if ($succ) {
+            $request->session()->flash('status', $item->name.' has been added!'); 
+            $request->session()->flash('alert-class', 'alert-info'); 
+        }
         return redirect('item/add');
     }
 }
