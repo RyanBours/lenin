@@ -28,6 +28,12 @@ Route::get('/reseted', function() {
     return view('reseted');
 });
 
+Route::get('/success', function() {
+    Auth::logout();
+    session()->flush();
+    return view('success');
+});
+
 Route::get('/dashboard', function() {
     return view('dashboard.dashboard');
 })->middleware('verified');

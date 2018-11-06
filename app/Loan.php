@@ -23,4 +23,8 @@ class Loan extends Model
         return $this->belongsTo(Item::class);
     }
 
+    public function isReturned() {
+        return $this->returned ? true : false;
+    }
+
 }
