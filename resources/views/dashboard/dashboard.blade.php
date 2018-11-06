@@ -21,10 +21,8 @@
 <!-- Title -->
 
 <div class="container-fluid">
-  <div class="row justify-content-center">
-    <div class="col-10">
-      <h1>dashboard</h1>
-
+  <div class="row justify-content-center mt-5">
+    <div class="col-3">
       <!-- Logout -->
       <a class="btn btn-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">
@@ -35,10 +33,14 @@
         @csrf
       </form>
     </div>
+    <div class="col-6" style="margin-left:150px">
+      <h1>Hallo, {{Auth::user()->name}}</h1>
+    </div>
   </div>
 
+
   <!-- Knoppen -->
-    <div class="row justify-content-center align-items-center mt-5">
+    <div class="row justify-content-center align-items-center mx-auto" style="margin-top:150px">
       <div class="col-5">
         <a href="/item/leen" class="btn btn-leeuw btn-block" style="height:125px; margin:10px; text-align: center; line-height: 125px">Inscannen</a>
       </div>
