@@ -1,5 +1,14 @@
 @extends('template')
-
+@push('style')
+<style>
+	body {
+		background-image: url('images/background.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	
+</style>
+@endpush
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

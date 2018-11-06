@@ -26,13 +26,14 @@
       <!-- Logout -->
       <a class="btn btn-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">
-        {{ __('Logout') }}
+        {{ __('Uitloggen') }}
       </a>
 
       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         @csrf
       </form>
     </div>
+    <!-- hallo user -->
     <div class="col-6" style="margin-left:150px">
       <h1>Hallo, {{Auth::user()->name}}</h1>
     </div>
