@@ -97,7 +97,7 @@
 
                                             <div class="md-form mb-4">
                                                 <i class="fa prefix grey-text"></i>
-                                                <input type="password" id="password-confirm" class="form-control validate" name="password_confirmation">
+                                                <input type="password" id="orangeForm-confirm" class="form-control validate" name="password_confirmation">
                                                 <label data-error="wrong" data-success="right" for="orangeForm-confirm">Confirm your password</label>
                                             </div>
                                     </div>
