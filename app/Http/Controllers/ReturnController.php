@@ -20,14 +20,15 @@ class ReturnController extends Controller {
     }
 
     public function add(Request $request) {
-        $cart = session('cart_return');
         $item = Item::where('name', 'like', $request->id)->first();
-        if ($item && !in_array($item, $cart ? $cart : [])) $request->session()->push('cart_return', $item);
-        
+        $cart = session('cart_return');
+
         $redirect = redirect('/return');
-        if (!$item) $redirect->withErrors(['id'=>'can\'t find item']);
+        if (!$item) $redirect->withErrors(['id'=>'Can\'t find '.$request->id]);
+        elseif (!$item->isBorrowed()) $redirect->withErrors(['id'=>'is niet geleend '.$request->id]);
         elseif (in_array($item, $cart ? $cart : [])) $redirect->withErrors(['id'=>$item->name.' is already in cart']);
-        // elseif (!$geleend) $redirect->withErrors(['id'=>'item is niet geleend']);
+        else $request->session()->push('cart_return', $item);
+
         return $redirect;
     }
 
@@ -46,6 +47,11 @@ class ReturnController extends Controller {
     }
 
     public function checkout() {
-        return redirect('/return');
+        $cart = session('cart_return');
+        if (!$cart) return redirect('/return')->withErrors(['error'=>'Cart is empty']);
+        foreach($cart as $item) {
+            // loan::update([]);
+        }
+        return redirect('/success');
     }
 }
