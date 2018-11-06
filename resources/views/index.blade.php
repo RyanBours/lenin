@@ -22,7 +22,7 @@
 					<h5 class="card-title text-center">Sign In</h5>
 					<form class="form-signin">
 						<hr class="my-4">
-						<button class="btn btn-lg btn-leeuw btn-block text-uppercase" type="submit">Scan je pasje</button>
+							<div class="card-body bg-leeuw text-white text-uppercase"style="text-align:center">Scan je pasje</div>
 						<hr class="my-4">
 						<p class="text-center"><a href="/login" class="text-primary">Log in zonder NFC</a></p> 
 					</form>
