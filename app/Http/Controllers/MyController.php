@@ -17,7 +17,9 @@ class MyController extends Controller {
     }
 
     public function index() {
-        $loans = loan::where('user_id', '=', Auth::id())->get();
+        $loans = loan::where('user_id', '=', Auth::id())
+            ->orderBy('returned', 'asc')
+            ->get();
         return view('dashboard.my', compact('loans'));
     }
 }

@@ -12,7 +12,8 @@
 					<thead>
 						<tr>
 							<th scope="col">id</th>
-							<th scope="col">name</th>
+							<th scope="col">item name</th>
+							<th scope="col">user name</th>
 							<th scope="col">start datum</th>
 							<th scope="col">eind datum</th>
 							<th scope="col">leen duur</th>
@@ -20,12 +21,13 @@
 					</thead>
 					<tbody>
 						@foreach ($loans as $loan)
-						<tr>
+						<tr class="{{ !$loan->isReturned() ? 'bg-warning' : ''}}">
 							<th scope="row">{{ $loan->id }}</th>
-							<td>{{ $loan->name }}</td>
-							<td>Cell</td>
-							<td>Cell</td>
-							<td>Cell</td>
+							<td>{{ $loan->user->name }}</td>
+							<td>{{ $loan->item->name }}</td>
+							<td>{{ $loan->start_date }}</td>
+							<td>{{ $loan->end_date }}</td>
+							<td>{{ $loan->expected_end_date }}</td>
 						</tr>
 						@endforeach
 					</tbody>
