@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Item;
+use App\Loan;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LeenController extends Controller {
     /**
@@ -22,15 +24,15 @@ class LeenController extends Controller {
 
     public function add(Request $request) {
         // add to cart session
-        $cart = session('cart_leen');
-
         $item = Item::where('name', 'like', $request->id)->first();
-        if ($item && !in_array($item, $cart ? $cart : [])) $request->session()->push('cart_leen', $item);
+        $cart = session('cart_leen');
 
         $redirect = redirect('item/leen');
         if (!$item) $redirect->withErrors(['id'=>'Can\'t find '.$request->id]);
+        elseif ($item->isBorrowed()) $redirect->withErrors(['id'=>'al geleend '.$request->id]);
         elseif (in_array($item, $cart ? $cart : [])) $redirect->withErrors(['id'=>$item->name.' is already in cart']);
-        // elseif ($item->isGeleend) $redirect->withErrors(['id'=>'al geleend '.$request->id]);
+        else $request->session()->push('cart_leen', $item);
+
         return $redirect;
     }
 
@@ -51,11 +53,11 @@ class LeenController extends Controller {
     }
 
     public function checkout() {
-        /**
-         * foreach session
-         * add to item_loan
-         * redirect success and clear cart
-         * App\loan::create(['user_id'=>1, 'item_id'=>1])
-        */
+        $cart = session('cart_leen');
+        if (!$cart) return redirect('/item/leen')->withErrors(['error'=>'Cart is empty']);
+        foreach($cart as $item) {
+            loan::create(['user_id'=>Auth::id(), 'item_id'=>$item->id]);
+        }
+        return redirect('/success');
     }
 }
