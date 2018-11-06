@@ -30,6 +30,7 @@ Route::get('/reseted', function() {
 
 Route::get('/success', function() {
     Auth::logout();
+    session()->flush();
     return view('success');
 });
 
