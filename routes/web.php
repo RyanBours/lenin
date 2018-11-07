@@ -38,8 +38,10 @@ Route::get('/dashboard', function() {
     return view('dashboard.dashboard');
 })->middleware('verified');
 
-route::get('/dashboard/add', 'AddController@index');
-route::post('/dashboard/add/post', 'AddController@post');
+route::get('/dashboard/item', 'ItemController@index');
+route::post('/dashboard/item/add', 'ItemController@post');
+route::get('/dashboard/item/edit/{id}', 'ItemController@edit');
+route::post('/dashboard/item/edit/{id}', 'ItemController@update');
 
 Route::get('/dashboard/leen', 'LeenController@index');
 Route::post('/dashboard/leen/add', 'LeenController@add');

@@ -53,7 +53,7 @@
       <div class="w-100"></div>
 
       <div class="col-5">
-        <a href="/dashboard/add" class="btn btn-leeuw btn-block" style="height:125px; margin:10px; text-align: center; line-height: 125px">Product Toevoegen</a>
+        <a href="/dashboard/item" class="btn btn-leeuw btn-block" style="height:125px; margin:10px; text-align: center; line-height: 125px">Product Toevoegen</a>
       </div>
 
       <div class="col-5">

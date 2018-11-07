@@ -27,7 +27,7 @@
                 <div class="card-header bg-leeuw text-white">{{ __('Nieuw product toevoegen') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="/dashboard/add/post">
+                    <form method="POST" action="/dashboard/item/add">
                         @csrf
                     <!--- toevoegen product naam -->
                         <div class="form-group row">
@@ -85,6 +85,35 @@
                     </form>
                 </div>
             </div>
+            <div class="table-responsive text-nowrap">
+				<table class="table table-hover table-striped table-bordered">
+					<thead>
+						<tr>
+							<th scope="col">ID</th>
+							<th scope="col">Item Name</th>
+                            <th scope="col">NFC</th>
+                            <th scope="col">Leenduur</th>
+                            <th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach ($items as $item)
+						<tr>
+							<th scope="row">{{ $item->id }}</th>
+							<td>{{ $item->name }}</td>
+                            <td>{{ $item->nfc_code }}</td>
+                            <td>{{ $item->max_loan_duration }}</td>
+                            <td align="center">
+                                <a class="btn btn-warning btn-sm m-0" href="/dashboard/item/edit/{{ $item->id }}">
+                                    edit
+                                </a>
+                            </td>
+						</tr>
+						@endforeach
+					</tbody>
+				</table>
+			</div>
+            {{ $items->links() }}
         </div>
     </div>
 </div>
