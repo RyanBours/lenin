@@ -1,5 +1,6 @@
 @extends('template')
 
+<<<<<<< HEAD
 @push('style')
 <style>
 	body {
@@ -13,12 +14,14 @@
 </style>
 @endpush
 
+=======
+>>>>>>> 0234f73c3151884872607e7096a442e4eefaede5
 @section('content')
 <div class="container">
     <div class="row justify-content-center align-items-center mt-5">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header bg-leeuw">{{ __('Login') }}</div>
+                <div class="card-header bg-leeuw text-white">{{ __('Login') }}</div>
 
                 <div class="card-body mt-3">
                     <form method="POST" action="{{ route('login') }}">
@@ -70,7 +73,7 @@
                     <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                                <form method="POST" id="register-form" action="{{ route('register') }}">
+                                <form method="POST" id="register-form" action="/register">
                                     @csrf
                                     <div class="modal-header text-center">
                                         <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
@@ -99,7 +102,7 @@
 
                                             <div class="md-form mb-4">
                                                 <i class="fa prefix grey-text"></i>
-                                                <input type="password" id="password-confirm" class="form-control validate" name="password_confirmation">
+                                                <input type="password" id="orangeForm-confirm" class="form-control validate" name="password_confirmation">
                                                 <label data-error="wrong" data-success="right" for="orangeForm-confirm">Confirm your password</label>
                                             </div>
                                     </div>

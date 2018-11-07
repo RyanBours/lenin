@@ -58,4 +58,8 @@ Route::post('/return/checkout', 'ReturnController@checkout');
 Route::get('/return/remove/{item}', 'ReturnController@remove');
 
 Route::redirect('/item', '/dashboard');
+
 Auth::routes(['verify' => true]);
+Route::get('/register', function() {
+    return redirect('/login');
+}); // ->with(modal open)
