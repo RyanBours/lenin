@@ -38,18 +38,18 @@ Route::get('/dashboard', function() {
     return view('dashboard.dashboard');
 })->middleware('verified');
 
-route::get('/item/add', 'AddController@index');
-route::post('/item/add/post', 'AddController@post');
+route::get('/dashboard/add', 'AddController@index');
+route::post('/dashboard/add/post', 'AddController@post');
 
-Route::get('/item/leen', 'LeenController@index');
-Route::post('/item/leen/add', 'LeenController@add');
-Route::post('/item/leen/clear', 'LeenController@clear');
-Route::post('/item/leen/checkout', 'LeenController@checkout');
-Route::get('/item/leen/remove/{item}', 'LeenController@remove');
+Route::get('/dashboard/leen', 'LeenController@index');
+Route::post('/dashboard/leen/add', 'LeenController@add');
+Route::post('/dashboard/leen/clear', 'LeenController@clear');
+Route::post('/dashboard/leen/checkout', 'LeenController@checkout');
+Route::get('/dashboard/leen/remove/{item}', 'LeenController@remove');
 
-Route::get('/item/beheer', 'BeheerController@index');
+Route::get('/dashboard/beheer', 'BeheerController@index');
 
-Route::get('/item/my', 'MyController@index');
+Route::get('/dashboard/my', 'MyController@index');
 
 Route::get('/return', 'ReturnController@index');
 Route::post('/return/add', 'ReturnController@add');
@@ -57,7 +57,7 @@ Route::post('/return/clear', 'ReturnController@clear');
 Route::post('/return/checkout', 'ReturnController@checkout');
 Route::get('/return/remove/{item}', 'ReturnController@remove');
 
-Route::redirect('/item', '/dashboard');
+// Route::redirect('/item', '/dashboard');
 
 Auth::routes(['verify' => true]);
 Route::get('/register', function() {

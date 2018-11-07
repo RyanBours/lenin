@@ -42,22 +42,22 @@
   <!-- Knoppen -->
     <div class="row justify-content-center align-items-center mx-auto" style="margin-top:150px">
       <div class="col-5">
-        <a href="/item/leen" class="btn btn-leeuw btn-block" style="height:125px; margin:10px; text-align: center; line-height: 125px">Inscannen</a>
+        <a href="/dashboard/leen" class="btn btn-leeuw btn-block" style="height:125px; margin:10px; text-align: center; line-height: 125px">Inscannen</a>
       </div>
 
       <div class="col-5">  
-        <a href="/item/my" class="btn btn-leeuw btn-block" style="height:125px; margin:10px; text-align: center; line-height: 125px">Mijn Items</a>
+        <a href="/dashboard/my" class="btn btn-leeuw btn-block" style="height:125px; margin:10px; text-align: center; line-height: 125px">Mijn Items</a>
       </div>
 
 
       <div class="w-100"></div>
 
       <div class="col-5">
-        <a href="/item/add" class="btn btn-leeuw btn-block" style="height:125px; margin:10px; text-align: center; line-height: 125px">Product Toevoegen</a>
+        <a href="/dashboard/add" class="btn btn-leeuw btn-block" style="height:125px; margin:10px; text-align: center; line-height: 125px">Product Toevoegen</a>
       </div>
 
       <div class="col-5">
-        <a href="/item/beheer" class="btn btn-leeuw btn-block" style="height:125px; margin:10px; text-align: center; line-height: 125px">Alles Beheren</a>
+        <a href="/dashboard/beheer" class="btn btn-leeuw btn-block" style="height:125px; margin:10px; text-align: center; line-height: 125px">Alles Beheren</a>
       </div>
     </div>
 </div>

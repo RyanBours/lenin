@@ -27,7 +27,7 @@ class LeenController extends Controller {
         $item = Item::where('name', 'like', $request->id)->first();
         $cart = session('cart_leen');
 
-        $redirect = redirect('item/leen');
+        $redirect = redirect('dashboard/leen');
         if (!$item) $redirect->withErrors(['id'=>'Can\'t find '.$request->id]);
         elseif ($item->isBorrowed()) $redirect->withErrors(['id'=>'al geleend '.$request->id]);
         elseif (in_array($item, $cart ? $cart : [])) $redirect->withErrors(['id'=>$item->name.' is already in cart']);
@@ -43,18 +43,18 @@ class LeenController extends Controller {
             unset($cart[$key]);
         }
         session()->put('cart_leen', $cart);
-        return redirect('item/leen');
+        return redirect('dashboard/leen');
     }
 
     public function clear(Request $request) {
         // clears cart session
         $request->session()->forget('cart_leen');
-        return redirect('item/leen');
+        return redirect('dashboard/leen');
     }
 
     public function checkout() {
         $cart = session('cart_leen');
-        if (!$cart) return redirect('/item/leen')->withErrors(['error'=>'Cart is empty']);
+        if (!$cart) return redirect('/dashboard/leen')->withErrors(['error'=>'Cart is empty']);
         foreach($cart as $item) {
             loan::create(['user_id'=>Auth::id(), 'item_id'=>$item->id]);
         }

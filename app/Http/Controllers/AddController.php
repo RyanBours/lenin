@@ -30,7 +30,7 @@ class AddController extends Controller {
         ]);
 
         if ($validator->fails()) {
-            return redirect('/item/add')
+            return redirect('/dashboard/add')
                         ->withErrors($validator)
                         ->withInput();
         }
@@ -43,11 +43,11 @@ class AddController extends Controller {
         if ($succ) {
             $request->session()->flash('status', $item->name.' has been added!'); 
             $request->session()->flash('alert-class', 'alert-info'); 
-            return redirect('/item/add');
+            return redirect('/dashboard/add');
         }
 
         $request->session()->flash('status', ' Somenthing went wrong'); 
         $request->session()->flash('alert-class', 'alert-danger');
-        return redirect('/item/add');
+        return redirect('/dashboard/add');
     }
 }

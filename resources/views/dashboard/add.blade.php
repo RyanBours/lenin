@@ -27,7 +27,7 @@
                 <div class="card-header bg-leeuw text-white">{{ __('Nieuw product toevoegen') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="/item/add/post">
+                    <form method="POST" action="/dashboard/add/post">
                         @csrf
                     <!--- toevoegen product naam -->
                         <div class="form-group row">

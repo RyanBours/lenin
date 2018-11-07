@@ -27,7 +27,7 @@
 		<div class="col-4">			
 			<h1 class="text-center">Handmatig invoeren</h1>
 			<hr>
-			<form method="POST" action="/item/leen/add">
+			<form method="POST" action="/dashboard/leen/add">
 				@csrf
 					<br>
 				<div class="form-group row">
@@ -77,7 +77,7 @@
 							<td>Cell</td>
 							<td>Cell</td>
 							<td>Cell</td>
-						<td><a class="btn btn-danger btn-sm m-0" href="/item/leen/remove/{{ $item }}"><i class="fas fa-times"></i></a></td>
+						<td><a class="btn btn-danger btn-sm m-0" href="/dashboard/leen/remove/{{ $item }}"><i class="fas fa-times"></i></a></td>
 						</tr>
 						@endforeach
 					</tbody>
@@ -88,7 +88,7 @@
 			document.getElementById('checkout-form').submit();">
 			Accepteren
 		</a>
-		<form id="checkout-form" action="/item/leen/checkout" method="POST" style="display: none">
+		<form id="checkout-form" action="/dashboard/leen/checkout" method="POST" style="display: none">
 			@csrf
 		</form>
 		<!-- knop annuleren -->
@@ -96,7 +96,7 @@
 			document.getElementById('clear-form').submit();">
 			Annuleren
 		</a>
-		<form id="clear-form" action="/item/leen/clear" method="POST" style="display: none">
+		<form id="clear-form" action="/dashboard/leen/clear" method="POST" style="display: none">
 			@csrf
 		</form>
 		 <!-- Terug Knop -->
