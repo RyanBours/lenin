@@ -29,7 +29,7 @@
 					</form>
 				</div>
 			</div>
-			<div class="btn btn-leeuw btn-block mt-0">Terugbrengen</div>
+			<a class="btn btn-leeuw btn-block mt-0" href="/return">Terugbrengen</a>
 		</div>
 	</div>
 </div>
