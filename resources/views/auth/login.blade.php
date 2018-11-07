@@ -82,12 +82,12 @@
                                         
                                             <div class="md-form mb-5">
                                                 <i class="fa fa-user prefix grey-text"></i>
-                                                <input type="text" id="orangeForm-name" class="form-control validate" name="name">
+                                                <input type="text" id="orangeForm-name" class="form-control validate" name="name" value="{{ old('name') }}">
                                                 <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
                                             </div>
                                             <div class="md-form mb-5">
                                                 <i class="fa fa-envelope prefix grey-text"></i>
-                                                <input type="email" id="orangeForm-email" class="form-control validate" name="email">
+                                                <input type="email" id="orangeForm-email" class="form-control validate" name="email" value="{{ old('email') }}">
                                                 <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
                                             </div>
                             
