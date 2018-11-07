@@ -60,4 +60,6 @@ Route::get('/return/remove/{item}', 'ReturnController@remove');
 Route::redirect('/item', '/dashboard');
 
 Auth::routes(['verify' => true]);
-Route::redirect('/register', '/login'); // ->with(modal open)
+Route::get('/register', function() {
+    return redirect('/login');
+}); // ->with(modal open)

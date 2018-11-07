@@ -68,7 +68,7 @@
                     <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                                <form method="POST" id="register-form" action="{{ route('register') }}">
+                                <form method="POST" id="register-form" action="/register">
                                     @csrf
                                     <div class="modal-header text-center">
                                         <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
