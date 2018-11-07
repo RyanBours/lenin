@@ -7,6 +7,8 @@
 		background-image: url('images/background.png');
 		background-repeat: no-repeat;
 		background-size: cover;
+		background-position: center center;
+		background-attachment: fixed;		
 	}
 	
 </style>

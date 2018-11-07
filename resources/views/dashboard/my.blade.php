@@ -1,36 +1,36 @@
 @extends('template') 
-@section('title', 'my')
-@section('content')
-@push('style')
+@section('title', 'my') @push('style')
 <style>
-  body {
-    background-image: url('/images/leeuwenborgh kleuren.png');
-    background-repeat: no-repeat;
-    background-size: 3em, auto;
-    background-position-x: 2em;
-  } 
+	body {
+		background-image: url('/images/leeuwenborgh kleuren.png');
+		background-repeat: no-repeat;
+		background-size: 3em, auto;
+		background-position-x: 2em;
+	}
 
-  table{
-	  margin-top: 100px;
-  }
+	table {
+		margin-top: 100px;
+	}
 
-  hr{
-	  color: #ee7d11;
-	  background-color: #ee7d11;
-	  height: 1px;
-	  width: 400px;
-  }
-
+	hr {
+		color: #ee7d11;
+		background-color: #ee7d11;
+		height: 1px;
+		width: 400px;
+	}
 </style>
 
 
+@section('content')
 
-<h1 class="text-center pt-5">My Checkout</h1>
-<hr>
-<div class="justify-content-center" style="margin-left:44em">
-	<a href="/dashboard" class="btn btn-leeuw">Terug</a>
-</div>
 <div class="container-fluid">
+	<h1 class="text-center pt-5">My Checkout</h1>
+	<hr>
+	<div class="row justify-content-center">
+		<div class="col-2 md-auto" align="center">
+			<a href="/dashboard" class="btn btn-leeuw">Terug</a>
+		</div>
+	</div>
 	<div class="row">
 		<div class="col-2">
 		</div>

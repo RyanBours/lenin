@@ -12,8 +12,6 @@
     background-size: 3em, auto;
     background-position-x: 2em;
   }
-
-
   
 </style>
 @endpush 
@@ -36,6 +34,7 @@
     <div class="col-6" style="margin-left:150px">
       <h1>Hallo, {{Auth::user()->name}}</h1>
     </div>
+
   </div>
 
 
