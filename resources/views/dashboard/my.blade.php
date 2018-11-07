@@ -25,7 +25,7 @@
 
 
 
-<h1 class="text-center pt-5">My Checkout</h1>
+<h1 class="text-center pt-5">Mijn items</h1>
 <hr>
 <div class="justify-content-center" style="margin-left:44em">
 	<a href="/dashboard" class="btn btn-leeuw">Terug</a>

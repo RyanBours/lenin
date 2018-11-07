@@ -1,22 +1,11 @@
 @extends('template')
 
-@push('style')
-<style>
-	body {
-		background-image: url('images/background.png');
-		background-repeat: no-repeat;
-		background-size: cover;
-	}
-	
-</style>
-@endpush
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center align-items-center mt-5">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header bg-leeuw">{{ __('Login') }}</div>
+                <div class="card-header bg-leeuw text-white">{{ __('Login') }}</div>
 
                 <div class="card-body mt-3">
                     <form method="POST" action="{{ route('login') }}">
