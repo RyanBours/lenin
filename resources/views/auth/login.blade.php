@@ -1,6 +1,5 @@
 @extends('template')
 
-<<<<<<< HEAD
 @push('style')
 <style>
 	body {
@@ -14,8 +13,6 @@
 </style>
 @endpush
 
-=======
->>>>>>> 0234f73c3151884872607e7096a442e4eefaede5
 @section('content')
 <div class="container">
     <div class="row justify-content-center align-items-center mt-5">

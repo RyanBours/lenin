@@ -1,22 +1,51 @@
 @extends('template') 
 @section('title', 'beheer')
-@section('content')
-<h1>beheer</h1>
-<div class="container-fluid">
-	<div class="row">
 
+@push('style')
+<style>
+	body {
+		background-image: url('/images/leeuwenborgh kleuren.png');
+		background-repeat: no-repeat;
+		background-size: 3em, auto;
+		background-position-x: 2em;
+	}
+
+	table {
+		margin-top: 100px;
+	}
+
+	hr {
+		color: #ee7d11;
+		background-color: #ee7d11;
+		height: 1px !important;
+		width: 300px;
+	}
+</style>
+
+@section('content')
+
+<div class="container-fluid">
+	<h1 class="text-center pt-5">Beheer</h1>
+	<hr>
+	<div class="row justify-content-center">
+		<div class="col-2 md-auto" align="center">
+			<a href="/dashboard" class="btn btn-leeuw">Terug</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-2">
+		</div>
 		<div class="col-8">
-			<h1>Checkout</h1>
 			<div class="table-responsive text-nowrap">
-				<table class="table">
+				<table class="table table-hover table-striped table-bordered">
 					<thead>
 						<tr>
-							<th scope="col">id</th>
-							<th scope="col">item name</th>
-							<th scope="col">user name</th>
-							<th scope="col">start datum</th>
-							<th scope="col">eind datum</th>
-							<th scope="col">leen duur</th>
+							<th scope="col">ID</th>
+							<th scope="col">Item Name</th>
+							<th scope="col">User Name</th>
+							<th scope="col">Start Datum</th>
+							<th scope="col">Eind Datum</th>
+							<th scope="col">Leen Duur</th>
 						</tr>
 					</thead>
 					<tbody>

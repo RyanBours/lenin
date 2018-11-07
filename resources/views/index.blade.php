@@ -29,6 +29,7 @@
 					</form>
 				</div>
 			</div>
+			<div class="btn btn-leeuw btn-block mt-0">Terugbrengen</div>
 		</div>
 	</div>
 </div>
