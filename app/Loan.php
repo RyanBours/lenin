@@ -27,4 +27,11 @@ class Loan extends Model
         return $this->returned ? true : false;
     }
 
+    public function updateReturned() {
+        return $this->update([
+            'returned' => 1,
+            'end_date' => Date('Y-m-d H:i:s')
+        ]);
+    }
+
 }

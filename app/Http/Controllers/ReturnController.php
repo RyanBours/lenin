@@ -48,10 +48,19 @@ class ReturnController extends Controller {
 
     public function checkout() {
         $cart = session('cart_return');
-        if (!$cart) return redirect('/return')->withErrors(['error'=>'Cart is empty']);
-        foreach($cart as $item) {
-            // loan::update([]);
+
+        if (!$cart) {
+            $request->session()->flash('status', $item->name.' has been added!');
+            $request->session()->flash('alert-class', 'alert-warning');
+            return redirect('/return');
         }
+
+        foreach($cart as $item) {
+            $item->loans->where('returned', '=', 0)
+                ->first()
+                ->updateReturned();
+        }
+
         return redirect('/success');
     }
 }

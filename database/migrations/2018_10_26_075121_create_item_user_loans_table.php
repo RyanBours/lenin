@@ -15,7 +15,7 @@ class CreateItemUserLoansTable extends Migration
     {
         Schema::create('item_user_loans', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamp('start_date');
+            $table->timestamp('start_date')->nullable();
             $table->timestamp('end_date')->nullable(); // date - actually returned
             $table->timestamp('expected_end_date')->nullable(); // date - supposed returned
             $table->boolean('returned')->default(false);
