@@ -2,25 +2,33 @@
 @section('title', 'add')
 @push('style')
 <style>
-  html,body {
-    height: 100%;
-  }
-
   body {
     background-image: url('/images/leeuwenborgh kleuren.png');
     background-repeat: no-repeat;
     background-size: 3em, auto;
     background-position-x: 2em;
   }
+
+    hr {
+    color: #ee7d11;
+    background-color: #ee7d11;
+    height: 1px !important;
+    width: 400px;
+ }
 </style>
 @endpush
-@section('content')
 
+@section('content')
 @if(Session::has('status'))
 <div class="alert {{ session('alert-class') }}" role="alert">{{ session('status') }}</div>
 @endif
 
 <div class="container">
+    <h1 class="text-center pt-5">Beheer</h1>
+    <hr>
+    <div class="row justify-content-center">
+        <a href="/dashboard" class="btn btn-leeuw btn-rounded mb-4">Terug</a>
+    </div>
     <div class="row justify-content-center align-items-center mt-5">
         <div class="col-md-8">
             <div class="card">
@@ -79,13 +87,12 @@
                                 </button>
 
                         <!-- Terug Knop -->
-                                <a href="/dashboard" class="btn btn-leeuw btn-rounded mb-4">Annuleren</a>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-            <div class="table-responsive text-nowrap">
+            <div class="table-responsive text-nowrap mt-3">
 				<table class="table table-hover table-striped table-bordered">
 					<thead>
 						<tr>

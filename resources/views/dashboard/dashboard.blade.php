@@ -64,7 +64,7 @@ use App\Time;
     </div>
     @endif
     <div class="col-10">
-      <a href="/return" class="btn btn-leeuw btn-block" style="height:125px; margin:10px; text-align: center; line-height: 100px">Terugbrengen</a>
+      <a href="/return" class="btn btn-leeuw btn-block" style="height:125px; margin:10px; text-align: center; line-height: 100px">Retourneren</a>
     </div>
   </div>
 </div>
