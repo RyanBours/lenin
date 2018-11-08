@@ -37,7 +37,7 @@ class ItemController extends Controller {
         $originalName = $item->name;
 
         $validator = Validator::make($request->all(), [
-            'name' => [ 'required', 'max:255', new UniqueOrSameName( 'users', 'name', $item->name ) ]
+            'name' => [ 'required', 'max:255', Rule::unique('items')->ignore($item->id) ]
         ], [
             'name.unique' => 'Naam is al in gebruik door een ander item!'
         ]);
