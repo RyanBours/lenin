@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Item;
 use App\Http\Controllers\Session;
+use App\Rules\UniqueOrSameName;
+
 use Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ItemController extends Controller {
 
@@ -30,8 +33,10 @@ class ItemController extends Controller {
     }
 
     public function update($id, Request $request) {
+        $item = Item::find($id);
+
         $validator = Validator::make($request->all(), [
-            'name' => 'required|unique:items|max:255',
+            'name' => [ 'required', 'max:255', new UniqueOrSameName( 'users', 'name', $item->name ) ]
         ], [
             'name.unique' => 'Name has already been used!'
         ]);
@@ -42,7 +47,6 @@ class ItemController extends Controller {
                 ->withInput();
         }
 
-        $item = Item::find($id);
         $item->name = Input::get('name');
         $item->nfc_code = Input::get('NFC');
         $item->max_loan_duration = Input::get('Leenduur');
