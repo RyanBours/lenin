@@ -53,16 +53,17 @@ class ItemController extends Controller {
         $item->max_loan_duration = Input::get('Leenduur');
         $item->save();
 
-        $request->session()->flash('status', $originalName . ' has been updated!'); 
+        $request->session()->flash('status', $originalName . ' is gewijzigd!'); 
         $request->session()->flash('alert-class', 'alert-info'); 
         return redirect('/dashboard/item');
     }
 
+    // Add item
     public function post(Request $request) {
         $validator = Validator::make($request->all(), [
             'name' => 'required|unique:items|max:255',
         ], [
-            'name.unique' => 'Name has already been used!'
+            'name.unique' => 'Naam is al in gebruik door een ander item!'
         ]);
 
         if ($validator->fails()) {
@@ -72,18 +73,18 @@ class ItemController extends Controller {
         }
 
         $item = new Item;
-        $item->name = Input::get('name');
-        $item->nfc_code = Input::get('NFC');
-        $item->max_loan_duration = Input::get('Leenduur');;
+        $item->name = $request->name;
+        $item->nfc_code = $request->NFC;
+        $item->max_loan_duration = $request->Leenduur;
         $succ = $item->save();
 
         if ($succ) {
-            $request->session()->flash('status', $item->name.' has been added!'); 
+            $request->session()->flash('status', $item->name.' is toegevoegd!'); 
             $request->session()->flash('alert-class', 'alert-info'); 
             return redirect('/dashboard/item');
         }
 
-        $request->session()->flash('status', ' Somenthing went wrong'); 
+        $request->session()->flash('status', ' Er is iets fout gegaan'); 
         $request->session()->flash('alert-class', 'alert-danger');
         return redirect('/dashboard/item');
     }

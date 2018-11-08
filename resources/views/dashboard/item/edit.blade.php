@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="Leenduur" class="col-md-4 col-form-label text-md-right">{{ __('Leenduur') }}</label>
+                            <label for="Leenduur" class="col-md-4 col-form-label text-md-right">{{ __('Maximale Leenduur (dagen)') }}</label>
 
                             <div class="col-md-6">
                                 <input id="Leenduur" type="text" class="form-control{{ $errors->has('Leenduur') ? ' is-invalid' : '' }}" name="Leenduur" value="{{ old('Leenduur') ? old('Leenduur') : $item->max_loan_duration }}">

@@ -67,10 +67,11 @@
                         </div>
                     <!--- toevoegen Leenduur -->
                         <div class="form-group row">
-                            <label for="Leenduur" class="col-md-4 col-form-label text-md-right">{{ __('Leenduur') }}</label>
+                            <label for="Leenduur" class="col-md-4 col-form-label text-md-right">{{ __('Maximale Leenduur (dagen)') }}</label>
 
                             <div class="col-md-6">
-                                <input id="Leenduur" type="text" class="form-control{{ $errors->has('Leenduur') ? ' is-invalid' : '' }}" name="Leenduur" value="{{ old('Leenduur') ? old('Leenduur') : 0 }}">
+
+                                <input id="Leenduur" type="text" class="form-control{{ $errors->has('Maximale Leenduur') ? ' is-invalid' : '' }}" name="Leenduur" value="{{ old('Leenduur') ? old('Leenduur') : 0 }}">
 
                                 @if ($errors->has('Leenduur'))
                                     <span class="invalid-feedback" role="alert">
@@ -97,9 +98,9 @@
 					<thead>
 						<tr>
 							<th scope="col">ID</th>
-							<th scope="col">Item Name</th>
+							<th scope="col">Naam</th>
                             <th scope="col">NFC</th>
-                            <th scope="col">Leenduur</th>
+                            <th scope="col">Maximale Leenduur</th>
                             <th scope="col"></th>
 						</tr>
 					</thead>
