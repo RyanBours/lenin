@@ -1,15 +1,49 @@
 @extends('template') 
 @section('title', 'return')
 @section('content')
+@push('style')
+<style>
+  html,body {
+    height: 100%;
+  }	
+
+  body {
+    background-image: url('/images/leeuwenborgh kleuren.png');
+    background-repeat: no-repeat;
+    background-size: 3em, auto;
+    background-position-x: 2em;
+  }
+  hr{
+   color: #ee7d11;
+   background-color: #ee7d11;
+   height: 1px;
+   width: 350px;
+  }
+</style>
+@endpush
+
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-2">
-			<h1>manual add</h1>
-			<form method="POST" action="/return/add">
+		<!-- buffer -->
+		<div class ="col-1">
+		</div>
+			<!-- NFC Code -->
+		<div class="col-3">
+			<div style="height: 300px;" >
+				<h1 class="text-center">NFC Scan</h1>
+				<hr>
+				<br>
+				<br>
+				<div class="card-body bg-leeuw text-white "style="text-align:center">Scan je product</div>
+				<br>
+			</div>
+				<h1 class="text-center">Handmatig toevoegen</h1>
+				<hr>
+				<form method="POST" action="/return/add">
 				@csrf
-
+				<!-- handmatig zoeken -->
 				<div class="form-group row">
-					<label for="id" class="col-md-4 col-form-label text-md-right">{{ __('ID') }}</label>
+					<label for="id" class="col-md-3 col-form-label text-md-right">{{ __('ID') }}</label>
 					<div class="col-md-6">
 						<input id="id" type="text" class="form-control{{ $errors->has('id') ? ' is-invalid' : '' }}" name="id" value="{{ old('email') }}" required autofocus>
 							@if ($errors->has('id'))
@@ -19,27 +53,29 @@
 							@endif
 					</div>
 				</div>
-
-				<div class="form-group row mb-0">
-					<div class="col-md-6 offset-md-4">
-						<button type="submit" class="btn btn-primary">
-							{{ __('Add') }}
+					<br>
+				<div class="form-group row mb-5">
+					<div class="col-md-3 offset-md-3">
+						<button type="submit" class="btn btn-leeuw text-white ">
+							{{ __('Product toevoegen') }}
 						</button>
 					</div>
 				</div>
 			</form>
 		</div>
 
-		<div class="col-8">
+		<!-- buffer -->
+		<div class ="col-1">
+		</div>
+			
+		<div class="col-6">
+				<h1 class="text-center">Retour Checkout</h1>
+				<hr>
+				<!-- Terug Knop -->
+				<div style=text-align:center;>
+				<a href="/" class="btn btn-leeuw">Terug</a>
+				</div>
             <div class="row">
-                <h1>Return Checkout</h1>
-                <a class="btn btn-danger ml-auto" onclick="event.preventDefault();
-                    document.getElementById('clear-form').submit();">
-                    Clear
-                </a>
-                <form id="clear-form" action="/return/clear" method="POST" style="display: none;">
-                    @csrf
-                </form>
             </div>
 			<div class="table-responsive text-nowrap">
 				<table class="table">
@@ -67,17 +103,25 @@
 					</tbody>
 				</table>
 			</div>
-            <a class="btn btn-leeuw text-white" onclick="event.preventDefault();
-                document.getElementById('checkout-form').submit();">
-                Confirm checkout
-            </a>
-            <form id="checkout-form" action="/return/checkout" method="POST" style="display: none;">
-                @csrf
-            </form>
-		</div>
-
-		<div class="col-2">
-			<h1>instructie</h1>
+			<br>
+			<div style=text-align:center;>
+            	<!-- knop accepteren -->
+				<a class="btn btn-leeuw text-white " onclick="event.preventDefault();
+				document.getElementById('checkout-form').submit();">
+				Accepteren
+			</a>
+			<form id="checkout-form" action="/return/checkout" method="POST" style="display: none">
+				@csrf
+			</form>
+			<!-- knop annuleren -->
+			<a class="btn btn-leeuw text-white " onclick="event.preventDefault();
+				document.getElementById('clear-form').submit();">
+				Leegmaken
+			</a>
+			<form id="clear-form" action="/return/clear" method="POST" style="display: none">
+				@csrf
+			</form>
+			</div>
 		</div>
 	</div>
 </div>
