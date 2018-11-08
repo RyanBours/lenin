@@ -21,12 +21,10 @@
 			<div class="card card-signin my-5">
 				<div class="card-body">
 					<h5 class="card-title text-center">Sign In</h5>
-					<form class="form-signin">
-						<hr class="my-4">
-							<div class="card-body bg-leeuw text-white text-uppercase"style="text-align:center">Scan je pasje</div>
-						<hr class="my-4">
-						<p class="text-center"><a href="/login" class="text-primary">Log in zonder NFC</a></p> 
-					</form>
+					<hr class="my-4">
+					<div class="card-body bg-leeuw text-white text-uppercase text-center">Scan je pasje</div>
+					<hr class="my-4">
+					<p class="text-center"><a href="/login" class="text-primary">Log in zonder NFC</a></p> 
 				</div>
 			</div>
 			<a class="btn btn-leeuw btn-block mt-0" href="/return">Terugbrengen</a>

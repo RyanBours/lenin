@@ -72,7 +72,7 @@
                             <div class="modal-content">
                                 <form method="POST" id="register-form" action="/register">
                                     @csrf
-                                    <div class="modal-header text-center">
+                                    <div class="modal-header text-center bg-leeuw text-white">
                                         <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
@@ -98,7 +98,7 @@
                                             </div>
 
                                             <div class="md-form mb-4">
-                                                <i class="fa prefix grey-text"></i>
+                                                <i class="fa fa-lock prefix grey-text"></i>
                                                 <input type="password" id="orangeForm-confirm" class="form-control validate" name="password_confirmation">
                                                 <label data-error="wrong" data-success="right" for="orangeForm-confirm">Confirm your password</label>
                                             </div>
