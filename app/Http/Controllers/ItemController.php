@@ -34,11 +34,12 @@ class ItemController extends Controller {
 
     public function update($id, Request $request) {
         $item = Item::find($id);
+        $originalName = $item->name;
 
         $validator = Validator::make($request->all(), [
             'name' => [ 'required', 'max:255', new UniqueOrSameName( 'users', 'name', $item->name ) ]
         ], [
-            'name.unique' => 'Name has already been used!'
+            'name.unique' => 'Naam is al in gebruik door een ander item!'
         ]);
         
         if ($validator->fails()) {
@@ -52,7 +53,7 @@ class ItemController extends Controller {
         $item->max_loan_duration = Input::get('Leenduur');
         $item->save();
 
-        $request->session()->flash('status', ' has been updated!'); 
+        $request->session()->flash('status', $originalName . ' has been updated!'); 
         $request->session()->flash('alert-class', 'alert-info'); 
         return redirect('/dashboard/item');
     }
