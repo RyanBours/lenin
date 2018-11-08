@@ -70,7 +70,7 @@
                             <label for="Leenduur" class="col-md-4 col-form-label text-md-right">{{ __('Leenduur') }}</label>
 
                             <div class="col-md-6">
-                                <input id="Leenduur" type="text" class="form-control{{ $errors->has('Leenduur') ? ' is-invalid' : '' }}" name="Leenduur" value="{{ old('Leenduur') }}">
+                                <input id="Leenduur" type="text" class="form-control{{ $errors->has('Leenduur') ? ' is-invalid' : '' }}" name="Leenduur" value="{{ old('Leenduur') ? old('Leenduur') : 0 }}">
 
                                 @if ($errors->has('Leenduur'))
                                     <span class="invalid-feedback" role="alert">

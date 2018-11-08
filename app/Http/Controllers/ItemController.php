@@ -72,8 +72,9 @@ class ItemController extends Controller {
         }
 
         $item = new Item;
-        $item->name = $request->name;
-        $item->max_loan_duration = 0;
+        $item->name = Input::get('name');
+        $item->nfc_code = Input::get('NFC');
+        $item->max_loan_duration = Input::get('Leenduur');;
         $succ = $item->save();
 
         if ($succ) {
