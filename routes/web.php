@@ -38,7 +38,7 @@ Route::get('/dashboard', function() {
     return view('dashboard.dashboard');
 })->middleware('verified');
 
-route::get('/dashboard/item', 'ItemController@index');
+route::get('/dashboard/item', 'ItemController@index')->middleware('permission:1');
 route::post('/dashboard/item/add', 'ItemController@post');
 route::get('/dashboard/item/edit/{id}', 'ItemController@edit');
 route::post('/dashboard/item/edit/{id}', 'ItemController@update');
@@ -49,7 +49,7 @@ Route::post('/dashboard/leen/clear', 'LeenController@clear');
 Route::post('/dashboard/leen/checkout', 'LeenController@checkout');
 Route::get('/dashboard/leen/remove/{item}', 'LeenController@remove');
 
-Route::get('/dashboard/beheer', 'BeheerController@index');
+Route::get('/dashboard/beheer', 'BeheerController@index')->middleware('permission:1');
 
 Route::get('/dashboard/my', 'MyController@index');
 
