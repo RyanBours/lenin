@@ -24,12 +24,12 @@
 @endif
 
 <div class="container">
-    <h1 class="text-center pt-5">Beheer</h1>
+    <h1 class="text-center mt-5">Beheer</h1>
     <hr>
     <div class="row justify-content-center">
         <a href="/dashboard" class="btn btn-leeuw btn-rounded mb-4">Terug</a>
     </div>
-    <div class="row justify-content-center align-items-center mt-5">
+    <div class="row justify-content-center align-items-center mt-3">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header bg-leeuw text-white">{{ __('Nieuw product toevoegen') }}</div>
