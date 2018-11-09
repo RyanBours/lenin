@@ -22,7 +22,7 @@
 </style>
 @endpush
 
-<div class="container-fluid">
+<div class="container-fluid" style="margin-top: 2%">
 	<div class="row">
 		<!-- buffer -->
 		<div class ="col-1">
@@ -95,9 +95,9 @@
 						<tr>
 							<th scope="row">{{ $item->id }}</th>
 							<td>{{ $item->name }}</td>
-							<td>Cell</td>
-							<td>Cell</td>
-							<td>Cell</td>
+							<td>{{ $item->start_date }}</td>
+							<td>{{ $item->expected_end_date }}</td>
+							<td>{{ $item->expected_end_date - $item->start_date }}</td>
 						<td><a class="btn btn-danger btn-sm m-0" href="/dashboard/leen/remove/{{ $item }}"><i class="fas fa-times"></i></a></td>
 						</tr>
 						@endforeach

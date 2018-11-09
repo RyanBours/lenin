@@ -29,8 +29,12 @@ Route::get('/reset', function() {
 });
 
 Route::get('/success', function() {
-    Auth::logout();
-    session()->flush();
+    if (Auth::User()->permission_level <= 0) 
+    {
+        Auth::logout();
+        session()->flush();
+    } 
+    
     return view('success');
 });
 

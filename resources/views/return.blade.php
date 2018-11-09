@@ -23,7 +23,7 @@
 @endpush
 
 <div class="container-fluid">
-	<div class="row">
+	<div class="row" style="margin-top: 2%">
 		<!-- buffer -->
 		<div class ="col-1">
 		</div>

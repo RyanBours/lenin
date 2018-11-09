@@ -58,6 +58,8 @@ class LeenController extends Controller {
         foreach($cart as $item) {
             loan::create(['user_id'=>Auth::id(), 'item_id'=>$item->id]);
         }
+        
+        $request->session()->forget('cart_leen');
         return redirect('/success');
     }
 }
