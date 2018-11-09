@@ -23,9 +23,9 @@ Route::get('/verified', function() {
     return view('verified');
 });
 
-Route::get('/reseted', function() {
+Route::get('/reset', function() {
     Auth::logout();
-    return view('reseted');
+    return view('reset');
 });
 
 Route::get('/success', function() {
@@ -59,7 +59,7 @@ Route::post('/return/clear', 'ReturnController@clear');
 Route::post('/return/checkout', 'ReturnController@checkout');
 Route::get('/return/remove/{item}', 'ReturnController@remove');
 
-// Route::redirect('/item', '/dashboard');
+Route::redirect('/dashboard/{etc}', '/dashboard');
 
 Auth::routes(['verify' => true]);
 Route::get('/register', function() {
