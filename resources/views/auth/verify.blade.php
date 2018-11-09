@@ -1,4 +1,5 @@
 @extends('template')
+@section('title', 'Verify')
 @push('style')
 <style>
 	body {

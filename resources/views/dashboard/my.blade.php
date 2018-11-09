@@ -1,5 +1,6 @@
 @extends('template') 
-@section('title', 'my') @push('style')
+@section('title', 'Mijn Items')
+@push('style')
 <style>
 	body {
 		background-image: url('/images/leeuwenborgh kleuren.png');
@@ -24,7 +25,7 @@
 @section('content')
 
 <div class="container-fluid">
-	<h1 class="text-center pt-5">My Checkout</h1>
+	<h1 class="text-center pt-5">Mijn Items</h1>
 	<hr>
 	<div class="row justify-content-center">
 		<div class="col-2 md-auto" align="center">

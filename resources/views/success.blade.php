@@ -1,5 +1,5 @@
 @extends('template') 
-@section('title', '404')
+@section('title', 'Success')
 
 @push('style')
 <style>
