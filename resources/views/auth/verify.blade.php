@@ -14,7 +14,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Verifieer uw e-mail address.') }}</div>
+                <div class="card-header bg-leeuw text-white">{{ __('Verifieer uw e-mail address.') }}</div>
 
                 <div class="card-body">
                     @if (session('resent'))
@@ -25,15 +25,17 @@
 
                     {{ __('Voordat we doorgaan, volg de verificatie link die u toegestuurd hebt gekregen.') }}
                     {{ __('Als u geen link hebt gekregen') }}, <a href="{{ route('verification.resend') }}">{{ __('klik hier om het opnieuw te sturen') }}</a>.
+                    
                 </div>
+                    <hr>
+                    <a class="btn btn-leeuw" href="{{ route('logout') }}" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                    terug naar login
+                    </a>
             </div>
         </div>
     </div>
 </div>
-<a class="btn btn-leeuw" href="{{ route('logout') }}" onclick="event.preventDefault();
-    document.getElementById('logout-form').submit();">
-    terug naar login
-</a>
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     @csrf
 </form>
