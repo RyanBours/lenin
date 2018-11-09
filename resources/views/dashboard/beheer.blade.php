@@ -46,6 +46,7 @@
 							<th scope="col">Start Datum</th>
 							<th scope="col">Eind Datum</th>
 							<th scope="col">Leen Duur</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -57,6 +58,7 @@
 							<td>{{ $loan->start_date }}</td>
 							<td>{{ $loan->end_date }}</td>
 							<td>{{ $loan->expected_end_date }}</td>
+							<td><a class="btn btn-danger btn-sm m-0" href="/dashboard/beheer/remove/{{ $loan->id }}"><i class="fas fa-times"></i></a></td>
 						</tr>
 						@endforeach
 					</tbody>

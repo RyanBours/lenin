@@ -19,4 +19,11 @@ class BeheerController extends Controller {
         $loans = loan::orderBy('returned', 'asc')->get();
         return view('dashboard.beheer', compact('loans'));
     }
+
+    public function remove(Request $request, $loanId) {
+        // remove loan
+        $loan = Loan::where('id', 'like', $loanId)->first();
+        if ($loan) $loan->updateReturned();
+        return redirect('dashboard/beheer');
+    }
 }

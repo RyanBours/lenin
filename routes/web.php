@@ -54,6 +54,7 @@ Route::post('/dashboard/leen/checkout', 'LeenController@checkout');
 Route::get('/dashboard/leen/remove/{item}', 'LeenController@remove');
 
 Route::get('/dashboard/beheer', 'BeheerController@index')->middleware('permission:1');
+Route::get('/dashboard/beheer/remove/{item}', 'BeheerController@remove');
 
 Route::get('/dashboard/my', 'MyController@index');
 
