@@ -1,12 +1,7 @@
 @extends('template') 
 @section('title', 'leen') 
-@section('content')
 @push('style')
 <style>
-  html,body {
-    height: 100%;
-  }	
-
   body {
     background-image: url('/images/leeuwenborgh kleuren.png');
     background-repeat: no-repeat;
@@ -21,40 +16,46 @@
   }
 </style>
 @endpush
-
-<div class="container-fluid" style="margin-top: 2%">
+@section('content')
+<div class="container-fluid">
 	<div class="row">
+		<div class="col">
+			<h1 class="text-center">Leen Checkout</h1>
+			<hr>
+			<!-- Terug Knop -->
+			<div style="text-align:center">
+				<a href="/dashboard" class="btn btn-leeuw">Terug</a>
+			<div>
+		</div>
+	</div>
+	<br>
+	<div class="row h-100">
 		<!-- buffer -->
 		<div class ="col-1">
-		</div>
-			<!-- NFC Code -->
+			</div>
 		<div class="col-3">
-				<div style="height: 300px;" >
-					<h1 class="text-center">NFC Scan</h1>
-					<hr>
-					<br>
-					<br>
-					<div class="card-body bg-leeuw text-white "style="text-align:center">Scan je product</div>
-					<br>
-				</div>
-			<!-- handmatig invoeren -->			
+			<div class="text-center mb-5">
+				<h1>NFC Scan</h1>
+				<hr>
+				<div class="card-body bg-leeuw text-white">Scan je product</div>
+			</div>
 			<h1 class="text-center">Handmatig toevoegen</h1>
 			<hr>
 			<form method="POST" action="/dashboard/leen/add">
 				@csrf
-					<br>
+				<!-- handmatig zoeken -->
 				<div class="form-group row">
 					<label for="id" class="col-md-3 col-form-label text-md-right">{{ __('ID') }}</label>
 					<div class="col-md-6">
 						<input id="id" type="text" class="form-control{{ $errors->has('id') ? ' is-invalid' : '' }}" name="id" value="{{ old('email') }}" required autofocus>
-							@if ($errors->has('id'))
-							<span class="invalid-feedback" role="alert">
-								<strong>{{ $errors->first('id') }}</strong>
-							</span>
-							@endif
+						@if ($errors->has('id'))
+						<span class="invalid-feedback" role="alert">
+							<strong>{{ $errors->first('id') }}</strong>
+						</span>
+						@endif
 					</div>
 				</div>
-					<br>
+				<br>
 				<div class="form-group row mb-5">
 					<div class="col-md-3 offset-md-3">
 						<button type="submit" class="btn btn-leeuw text-white ">
@@ -64,20 +65,7 @@
 				</div>
 			</form>
 		</div>
-
-		<!-- buffer -->
-		<div class ="col-1">
-			</div>
-
-		<div class="col-6">
-				<h1 class="text-center">Leen Checkout</h1>
-				<hr>
-				<!-- Terug Knop -->
-				<div style="text-align:center">
-					 <a href="/dashboard" class="btn btn-leeuw">Terug</a>
-				<div>
-			<div class="row">
-				</div>
+		<div class="col-8">
 			<div class="table-responsive text-nowrap">
 				<table class="table">
 					<thead>
@@ -104,11 +92,11 @@
 					</tbody>
 				</table>
 			</div>
-			<br>
-			<!-- knop accepteren -->
+			<div style=text-align:center;>
+				<!-- knop accepteren -->
 			<a class="btn btn-leeuw text-white " onclick="event.preventDefault();
 			document.getElementById('checkout-form').submit();">
-			Accepteren
+			Uitchecken
 		</a>
 		<form id="checkout-form" action="/dashboard/leen/checkout" method="POST" style="display: none">
 			@csrf
@@ -121,6 +109,8 @@
 		<form id="clear-form" action="/dashboard/leen/clear" method="POST" style="display: none">
 			@csrf
 		</form>
+			</div>
+		</div>
 	</div>
 </div>
 @endsection
