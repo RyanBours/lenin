@@ -42,12 +42,13 @@
                                 @endif
                             </div>
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn btn-leeuw centered">
+                        <br>
+                        <div>
+                            <div style="text-align:center">
+                                <button type="submit" class="btn btn btn-leeuw">
                                     {{ __('Stuur wachtwoord herstel link') }}
                                 </button>
+                                <a href="/dashboard" class="btn btn-leeuw">Terug</a>
                             </div>
                         </div>
                     </form>
