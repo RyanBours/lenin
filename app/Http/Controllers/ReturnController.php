@@ -24,9 +24,9 @@ class ReturnController extends Controller {
         $cart = session('cart_return');
 
         $redirect = redirect('/return');
-        if (!$item) $redirect->withErrors(['id'=>'Can\'t find '.$request->id]);
-        elseif (!$item->isBorrowed()) $redirect->withErrors(['id'=>'is niet geleend '.$request->id]);
-        elseif (in_array($item, $cart ? $cart : [])) $redirect->withErrors(['id'=>$item->name.' is already in cart']);
+        if (!$item) $redirect->withErrors(['id'=> 'Kan ' . $request->id . 'niet vinden' ]);
+        elseif (!$item->isBorrowed()) $redirect->withErrors(['id'=> $request->id . 'is niet geleend ']);
+        elseif (in_array($item, $cart ? $cart : [])) $redirect->withErrors(['id'=>$item->name.' is al toegevoegd']);
         else $request->session()->push('cart_return', $item);
 
         return $redirect;
@@ -50,7 +50,7 @@ class ReturnController extends Controller {
         $cart = session('cart_return');
 
         if (!$cart) {
-            $request->session()->flash('status', $item->name.' has been added!');
+            $request->session()->flash('status', $item->name.' is toegevoegd!');
             $request->session()->flash('alert-class', 'alert-warning');
             return redirect('/return');
         }
