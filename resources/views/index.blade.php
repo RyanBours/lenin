@@ -20,7 +20,7 @@
 		<div class="col-sm-9 col-md-7 col-lg-5 mx-auto" style="margin-top: 200px;">
 			<div class="card card-signin my-5">
 				<div class="card-body">
-					<h5 class="card-title text-center">Sign In</h5>
+					<h5 class="card-title text-center">Aanmelden</h5>
 					<hr class="my-4">
 					<div class="card-body bg-leeuw text-white text-uppercase text-center">Scan pasje</div>
 					<hr class="my-4">

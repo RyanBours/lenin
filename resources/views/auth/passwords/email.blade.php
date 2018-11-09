@@ -1,11 +1,23 @@
 @extends('template')
+@push('style')
+<style>
+	body {
+		background-image: url('../images/background.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+		background-attachment: fixed;		
+	}
+	
+</style>
+@endpush
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8 col-lg-6 mx-auto" style="margin-top: 200px;">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                <div class="card-header bg-leeuw text-white ">{{ __('Wachtwoord herstellen') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -18,7 +30,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-mail adres :') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
@@ -33,8 +45,8 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
+                                <button type="submit" class="btn btn btn-leeuw centered">
+                                    {{ __('Stuur wachtwoord herstel link') }}
                                 </button>
                             </div>
                         </div>

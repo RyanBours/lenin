@@ -39,6 +39,7 @@
 			</div>
 				<h1 class="text-center">Handmatig toevoegen</h1>
 				<hr>
+				<br>
 				<form method="POST" action="/return/add">
 				@csrf
 				<!-- handmatig zoeken -->
@@ -72,12 +73,12 @@
 				<h1 class="text-center">Retour Checkout</h1>
 				<hr>
 				<!-- Terug Knop -->
-				<div style=text-align:center;>
+				<div style="text-align:center">
 				<a href="/" class="btn btn-leeuw">Terug</a>
 				</div>
             <div class="row">
             </div>
-			<div class="table-responsive text-nowrap">
+			<div class="table-responsive text-nowrap" style="text-align:center">
 				<table class="table">
 					<thead>
 						<tr>

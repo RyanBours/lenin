@@ -23,9 +23,22 @@
 @endpush
 
 <div class="container-fluid">
-	<div class="row">	
-		<div class="col-4">			
-			<h1 class="text-center">Handmatig invoeren</h1>
+	<div class="row">
+		<!-- buffer -->
+		<div class ="col-1">
+		</div>
+			<!-- NFC Code -->
+		<div class="col-3">
+				<div style="height: 300px;" >
+					<h1 class="text-center">NFC Scan</h1>
+					<hr>
+					<br>
+					<br>
+					<div class="card-body bg-leeuw text-white "style="text-align:center">Scan je product</div>
+					<br>
+				</div>
+			<!-- handmatig invoeren -->			
+			<h1 class="text-center">Handmatig toevoegen</h1>
 			<hr>
 			<form method="POST" action="/dashboard/leen/add">
 				@csrf
@@ -52,9 +65,17 @@
 			</form>
 		</div>
 
-		<div class="col-5">
+		<!-- buffer -->
+		<div class ="col-1">
+			</div>
+
+		<div class="col-6">
 				<h1 class="text-center">Leen Checkout</h1>
 				<hr>
+				<!-- Terug Knop -->
+				<div style="text-align:center">
+					 <a href="/dashboard" class="btn btn-leeuw">Terug</a>
+				<div>
 			<div class="row">
 				</div>
 			<div class="table-responsive text-nowrap">
@@ -83,6 +104,7 @@
 					</tbody>
 				</table>
 			</div>
+			<br>
 			<!-- knop accepteren -->
 			<a class="btn btn-leeuw text-white " onclick="event.preventDefault();
 			document.getElementById('checkout-form').submit();">
@@ -94,22 +116,11 @@
 		<!-- knop annuleren -->
 		<a class="btn btn-leeuw text-white "  onclick="event.preventDefault();
 			document.getElementById('clear-form').submit();">
-			Annuleren
+			Leegmaken
 		</a>
 		<form id="clear-form" action="/dashboard/leen/clear" method="POST" style="display: none">
 			@csrf
 		</form>
-		 <!-- Terug Knop -->
-		 <a href="/dashboard" class="btn btn-leeuw btn-rounded ">Terug</a>
-		 
-		 <!-- NFC KOLOM -->
-		</div>
-		<div class="col-3">
-			<h1 class="text-center">NFC Scan</h1>
-			<hr>
-			<br>
-			<div class="card-body bg-leeuw text-white "style="text-align:center">Scan je product</div>
-		</div>
 	</div>
 </div>
 @endsection
