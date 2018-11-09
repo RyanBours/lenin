@@ -28,9 +28,9 @@ class LeenController extends Controller {
         $cart = session('cart_leen');
 
         $redirect = redirect('dashboard/leen');
-        if (!$item) $redirect->withErrors(['id'=>'Can\'t find '.$request->id]);
-        elseif ($item->isBorrowed()) $redirect->withErrors(['id'=>'al geleend '.$request->id]);
-        elseif (in_array($item, $cart ? $cart : [])) $redirect->withErrors(['id'=>$item->name.' is already in cart']);
+        if (!$item) $redirect->withErrors(['id'=> 'Kan ' . $request->id . 'niet vinden']);
+        elseif ($item->isBorrowed()) $redirect->withErrors(['id'=> $request->id . 'al geleend ']);
+        elseif (in_array($item, $cart ? $cart : [])) $redirect->withErrors(['id'=>$item->name.' is al toegevoegd']);
         else $request->session()->push('cart_leen', $item);
 
         return $redirect;
@@ -54,7 +54,7 @@ class LeenController extends Controller {
 
     public function checkout() {
         $cart = session('cart_leen');
-        if (!$cart) return redirect('/dashboard/leen')->withErrors(['error'=>'Cart is empty']);
+        if (!$cart) return redirect('/dashboard/leen')->withErrors(['error'=>'Geen items toegevoegd']);
         foreach($cart as $item) {
             loan::create(['user_id'=>Auth::id(), 'item_id'=>$item->id]);
         }
