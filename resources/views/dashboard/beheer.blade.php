@@ -41,8 +41,8 @@
 					<thead>
 						<tr>
 							<th scope="col">ID</th>
-							<th scope="col">Item Name</th>
-							<th scope="col">User Name</th>
+							<th scope="col">Naam</th>
+							<th scope="col">Gebruiker</th>
 							<th scope="col">Start Datum</th>
 							<th scope="col">Eind Datum</th>
 							<th scope="col">Leen Duur</th>
@@ -53,8 +53,8 @@
 						@foreach ($loans as $loan)
 						<tr class="{{ !$loan->isReturned() ? 'bg-warning' : ''}}">
 							<th scope="row">{{ $loan->id }}</th>
-							<td>{{ $loan->user->name }}</td>
 							<td>{{ $loan->item->name }}</td>
+							<td>{{ $loan->user->name }}</td>
 							<td>{{ $loan->start_date }}</td>
 							<td>{{ $loan->end_date }}</td>
 							<td>{{ $loan->expected_end_date }}</td>
