@@ -52,7 +52,7 @@ class LeenController extends Controller {
         return redirect('dashboard/leen');
     }
 
-    public function checkout() {
+    public function checkout(Request $request) {
         $cart = session('cart_leen');
         if (!$cart) return redirect('/dashboard/leen')->withErrors(['error'=>'Geen items toegevoegd']);
         foreach($cart as $item) {
