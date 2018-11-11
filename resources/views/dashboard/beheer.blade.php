@@ -58,7 +58,11 @@
 							<td>{{ $loan->start_date }}</td>
 							<td>{{ $loan->end_date }}</td>
 							<td>{{ $loan->expected_end_date }}</td>
-							<td><a class="btn btn-danger btn-sm m-0" href="/dashboard/beheer/remove/{{ $loan->id }}"><i class="fas fa-times"></i></a></td>
+							<td>
+								@if ($loan->returned == 0)
+								<a class="btn btn-danger btn-sm m-0" href="/dashboard/beheer/remove/{{ $loan->id }}"><i class="fas fa-times"></i></a>
+								@endif
+							</td>
 						</tr>
 						@endforeach
 					</tbody>
