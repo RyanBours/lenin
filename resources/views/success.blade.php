@@ -20,7 +20,7 @@
 		<div class="col-8" style="margin-top:15em;">
 			<h1>Success!</h1>
 
-			@if (Auth::User()->permission_level > 0)
+			@if (Auth::User() && Auth::User()->permission_level > 0)
 				<a class="btn btn-leeuw btn-lg" href="/dashboard">Terug</a>
 			@else
 				<a class="btn btn-leeuw btn-lg" href="/">Uitloggen</a>
