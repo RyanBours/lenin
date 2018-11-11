@@ -24,9 +24,6 @@
                 <div class="card-body">
                     <p>Uw wachtwoord is gewijzigd.</p>
                 </div>
-                <a class="btn btn-leeuw text-white" href="/login">
-                    Terug naar login
-                </a>
             </div>
         </div>
     </div>

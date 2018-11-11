@@ -33,9 +33,6 @@
                 <div class="card-body">
                     <p>Bedankt voor het registreren.</p>
                 </div>
-                <a class="btn btn-leeuw text-white" href="/login">
-                    Terug naar login
-                </a>
             </div>
         </div>
     </div>
