@@ -5,7 +5,7 @@
 <style>
 	body {
 		background-image: url('/images/leeuwenborgh kleuren.png');
-		background-repeat: no-repeat;
+		background-repeat: repeat-y;
 		background-size: 3em, auto;
 		background-position-x: 2em;
 	}
