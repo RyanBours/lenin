@@ -16,7 +16,7 @@ class BeheerController extends Controller {
     }
 
     public function index() {
-        $loans = loan::orderBy('returned', 'asc')->get();
+        $loans = loan::orderBy('returned', 'asc')->orderBy('id', 'asc')->get();
         return view('dashboard.beheer', compact('loans'));
     }
 
