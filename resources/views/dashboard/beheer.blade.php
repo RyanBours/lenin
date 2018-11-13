@@ -68,6 +68,7 @@
 					</tbody>
 				</table>
 			</div>
+			{{ $loans->links() }}
         </div>
         
 	</div>
