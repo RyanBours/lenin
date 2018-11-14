@@ -15,6 +15,10 @@ class Item extends Model
         return $this->hasMany(Loan::class);
     }
 
+    public function loan() {
+        return $this->loans->where('returned', '=', '0')->first();
+    }
+
     public function isBorrowed() {
         return (bool) $this->loans->where('returned', '=', '0')->count();
     }

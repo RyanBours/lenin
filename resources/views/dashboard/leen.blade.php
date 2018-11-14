@@ -17,6 +17,9 @@
 </style>
 @endpush
 @section('content')
+@if(Session::has('status'))
+<div class="alert {{ session('alert-class') }}" role="alert">{{ session('status') }}</div>
+@endif
 <div class="container-fluid">
 	<div class="row">
 		<div class="col">
@@ -74,7 +77,7 @@
 							<th scope="col">name</th>
 							<th scope="col">start datum</th>
 							<th scope="col">eind datum</th>
-							<th scope="col">leen duur</th>
+							<th scope="col">leen duur(dagen)</th>
 							<th scope="col"></th>
 						</tr>
 					</thead>
@@ -83,9 +86,9 @@
 						<tr>
 							<th scope="row">{{ $item->id }}</th>
 							<td>{{ $item->name }}</td>
-							<td>{{ $item->start_date }}</td>
-							<td>{{ $item->expected_end_date }}</td>
-							<td>{{ $item->expected_end_date - $item->start_date }}</td>
+							<td>{{ \Carbon\Carbon::now() }}</td>
+							<td>{{ \Carbon\Carbon::now()->addDays($item->max_loan_duration) }}</td>
+							<td>{{ $item->max_loan_duration }}</td>
 						<td><a class="btn btn-danger btn-sm m-0" href="/dashboard/leen/remove/{{ $item }}"><i class="fas fa-times"></i></a></td>
 						</tr>
 						@endforeach

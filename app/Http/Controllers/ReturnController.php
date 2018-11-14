@@ -27,7 +27,11 @@ class ReturnController extends Controller {
         if (!$item) $redirect->withErrors(['id'=> 'Kan ' . $request->id . 'niet vinden' ]);
         elseif (!$item->isBorrowed()) $redirect->withErrors(['id'=> $request->id . 'is niet geleend ']);
         elseif (in_array($item, $cart ? $cart : [])) $redirect->withErrors(['id'=>$item->name.' is al toegevoegd']);
-        else $request->session()->push('cart_return', $item);
+        else {
+            $request->session()->flash('status', $item->name.' is toegevoegd!');
+            $request->session()->flash('alert-class', 'alert-info');
+            $request->session()->push('cart_return', $item);
+        }
 
         return $redirect;
     }
@@ -46,11 +50,11 @@ class ReturnController extends Controller {
         return redirect('/return');
     }
 
-    public function checkout() {
+    public function checkout(Request $request) {
         $cart = session('cart_return');
 
         if (!$cart) {
-            $request->session()->flash('status', $item->name.' is toegevoegd!');
+            $request->session()->flash('status', 'cart is leeg');
             $request->session()->flash('alert-class', 'alert-warning');
             return redirect('/return');
         }

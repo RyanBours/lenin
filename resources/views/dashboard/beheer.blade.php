@@ -45,7 +45,7 @@
 							<th scope="col">Gebruiker</th>
 							<th scope="col">Start Datum</th>
 							<th scope="col">Eind Datum</th>
-							<th scope="col">Leen Duur</th>
+							<th>Verwachte eind datum</th>
 							<th></th>
 						</tr>
 					</thead>
