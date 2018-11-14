@@ -21,7 +21,7 @@ class Time
         {
             return "Goedemiddag";
         }
-        else if ( $currentTIme >= 18)
+        else if ( $currentTime >= 18)
         {
             return "Goedenavond";
         }
