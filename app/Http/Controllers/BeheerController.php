@@ -16,7 +16,7 @@ class BeheerController extends Controller {
     }
 
     public function index() {
-        $loans = loan::orderBy('returned', 'asc')->orderBy('id', 'asc')->paginate(50);
+        $loans = loan::orderBy('returned', 'asc')->orderBy('id', 'desc')->paginate(50);
         
         return view('dashboard.beheer', compact('loans'));
     }

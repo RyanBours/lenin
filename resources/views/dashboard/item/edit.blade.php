@@ -59,6 +59,36 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
+
+                            <div class="col-md-6">
+
+                                <textarea id="description" type="text" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description">{{ old('description') ? old('description') : $item->description }}</textarea>
+
+                                @if ($errors->has('description'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('description') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="comment" class="col-md-4 col-form-label text-md-right">{{ __('comment') }}</label>
+
+                            <div class="col-md-6">
+
+                                <textarea id="comment" type="text" class="form-control{{ $errors->has('comment') ? ' is-invalid' : '' }}" name="comment">{{ old('comment') ? old('comment') : $item->comment }}</textarea>
+
+                                @if ($errors->has('comment'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('comment') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-leeuw btn-rounded mb-4">

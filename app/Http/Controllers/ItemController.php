@@ -37,7 +37,8 @@ class ItemController extends Controller {
         $originalName = $item->name;
 
         $validator = Validator::make($request->all(), [
-            'name' => [ 'required', 'max:255', Rule::unique('items')->ignore($item->id) ]
+            'name' => [ 'required', 'max:255', Rule::unique('items')->ignore($item->id) ],
+            'Leenduur' =>'numeric|min:0',
         ], [
             'name.unique' => 'Naam is al in gebruik door een ander item!'
         ]);
@@ -51,6 +52,8 @@ class ItemController extends Controller {
         $item->name = Input::get('name');
         $item->nfc_code = Input::get('NFC');
         $item->max_loan_duration = Input::get('Leenduur');
+        $item->description = Input::get('description');
+        $item->comment = Input::get('comment');
         $item->save();
 
         $request->session()->flash('status', $originalName . ' is gewijzigd!'); 
@@ -62,6 +65,7 @@ class ItemController extends Controller {
     public function post(Request $request) {
         $validator = Validator::make($request->all(), [
             'name' => 'required|unique:items|max:255',
+            'Leenduur' =>'numeric|min:0',
         ], [
             'name.unique' => 'Naam is al in gebruik door een ander item!'
         ]);
@@ -76,9 +80,10 @@ class ItemController extends Controller {
         $item->name = $request->name;
         $item->nfc_code = $request->NFC;
         $item->max_loan_duration = $request->Leenduur;
-        $succ = $item->save();
+        $item->description = $request->description;
+        $item->comment = $request->comment;
 
-        if ($succ) {
+        if ($item->save()) {
             $request->session()->flash('status', $item->name.' is toegevoegd!'); 
             $request->session()->flash('alert-class', 'alert-info'); 
             return redirect('/dashboard/item');

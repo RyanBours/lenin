@@ -65,6 +65,7 @@ class ReturnController extends Controller {
                 ->updateReturned();
         }
 
+        $request->session()->forget('cart_return');
         return redirect('/success');
     }
 }

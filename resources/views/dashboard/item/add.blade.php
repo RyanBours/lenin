@@ -65,7 +65,7 @@
                                 @endif
                             </div>
                         </div>
-                    <!--- toevoegen Leenduur -->
+                        <!--- toevoegen Leenduur -->
                         <div class="form-group row">
                             <label for="Leenduur" class="col-md-4 col-form-label text-md-right">{{ __('Maximale Leenduur (dagen)') }}</label>
 
@@ -76,6 +76,36 @@
                                 @if ($errors->has('Leenduur'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('Leenduur') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <!--- toevoegen description -->
+                        <div class="form-group row">
+                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
+
+                            <div class="col-md-6">
+
+                                <textarea id="description" type="text" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description">{{ old('description') }}</textarea>
+
+                                @if ($errors->has('description'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('description') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <!--- toevoegen comment -->
+                        <div class="form-group row">
+                            <label for="comment" class="col-md-4 col-form-label text-md-right">{{ __('comment') }}</label>
+
+                            <div class="col-md-6">
+
+                                <textarea id="comment" type="text" class="form-control{{ $errors->has('comment') ? ' is-invalid' : '' }}" name="comment">{{ old('comment') }}</textarea>
+
+                                @if ($errors->has('comment'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('comment') }}</strong>
                                     </span>
                                 @endif
                             </div>

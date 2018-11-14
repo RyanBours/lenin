@@ -15,9 +15,11 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nfc_code')->nullable();
             $table->string('name')->unique();
+            $table->string('nfc_code')->nullable();
             $table->integer('max_loan_duration')->nullable();
+            $table->string('description')->nullable();
+            $table->string('comment')->nullable();
             $table->timestamps();
         });
     }

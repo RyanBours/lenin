@@ -7,6 +7,8 @@ $factory->define(Item::class, function (Faker $faker) {
     return [
         'name' => $faker->unique()->word,
         'nfc_code' => $faker->unique()->uuid,
-        'max_loan_duration' => rand(0, 30)
+        'max_loan_duration' => rand(0, 30),
+        'description' => $faker->sentence,
+        'comment' => $faker->sentence
     ];
 });
