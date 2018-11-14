@@ -24,7 +24,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col">
-      <h1 class="text-center">Return Checkout</h1>
+      <h1 class="text-center mt-5">Return Checkout</h1>
       <hr>
       <!-- Terug Knop -->
       <div style="text-align:center">
