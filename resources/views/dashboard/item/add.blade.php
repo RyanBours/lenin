@@ -30,7 +30,7 @@
         <a href="/dashboard" class="btn btn-leeuw btn-rounded mb-4">Terug</a>
     </div>
     <div class="row justify-content-center align-items-center mt-3">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header bg-leeuw text-white">{{ __('Nieuw product toevoegen') }}</div>
 
@@ -124,7 +124,10 @@
                 </div>
             </div>
             <div class="table-responsive text-nowrap mt-3">
-				<table class="table table-hover table-striped table-bordered">
+                <form action="">
+                    <input class="form-control" placeholder="Zoek" aria-label="Zoek" type="search" name="q" value="{{ $q ? $q : '' }}">
+                </form>
+				<table class="table table-hover table-striped table-bordered mt-3">
 					<thead>
 						<tr>
 							<th scope="col">ID</th>

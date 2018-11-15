@@ -22,9 +22,12 @@ class ItemController extends Controller {
         $this->middleware('auth');
     }
 
-    public function index() {
-        $items = Item::paginate(15);
-        return view('dashboard.item.add', compact('items'));
+    public function index(Request $request) {
+        $q = $request->get('q');
+
+        $items = Item::where('name', 'like', '%'.$q.'%')
+            ->paginate(15);
+        return view('dashboard.item.add', compact('items', 'q'));
     }
 
     public function edit($id) {
