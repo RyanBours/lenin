@@ -43,6 +43,7 @@ Route::get('/dashboard', function() {
 })->middleware('verified');
 
 route::get('/dashboard/item', 'ItemController@index')->middleware('permission:1');
+route::get('/dashboard/item/add', 'ItemController@add');
 route::post('/dashboard/item/add', 'ItemController@post');
 route::get('/dashboard/item/edit/{id}', 'ItemController@edit');
 route::post('/dashboard/item/edit/{id}', 'ItemController@update');

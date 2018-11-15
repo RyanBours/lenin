@@ -12,6 +12,13 @@
     background-size: 3em, auto;
     background-position-x: 2em;
   }
+
+  hr {
+		color: #ee7d11;
+		background-color: #ee7d11;
+		height: 1px !important;
+		width: 300px;
+	}
 </style>
 @endpush
 @section('content')
@@ -21,6 +28,8 @@
 @endif
 
 <div class="container">
+    <h1 class="text-center mt-5">Beheer</h1>
+    <hr>
     <div class="row justify-content-center align-items-center mt-5">
         <div class="col-md-8">
             <div class="card">

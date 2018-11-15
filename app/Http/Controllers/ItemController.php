@@ -27,7 +27,11 @@ class ItemController extends Controller {
 
         $items = Item::where('name', 'like', '%'.$q.'%')
             ->paginate(15);
-        return view('dashboard.item.add', compact('items', 'q'));
+        return view('dashboard.item.index', compact('items', 'q'));
+    }
+
+    public function add() {
+        return view('dashboard.item.add');
     }
 
     public function edit($id) {
