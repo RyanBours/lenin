@@ -33,11 +33,14 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-2">
+		<div class="col-1">
 		</div>
-		<div class="col-8">
+		<div class="col-10">
 			<div class="table-responsive text-nowrap">
-				<table class="table table-hover table-striped table-bordered">
+				<form action="">
+					<input class="form-control" placeholder="Zoek" aria-label="Zoek" type="search" name="q" value="{{ $q ? $q : '' }}">
+				</form>
+				<table class="table table-hover table-striped table-bordered mt-0">
 					<thead>
 						<tr>
 							<th scope="col">ID</th>

@@ -15,10 +15,18 @@ class BeheerController extends Controller {
         $this->middleware('auth');
     }
 
-    public function index() {
-        $loans = loan::orderBy('returned', 'asc')->orderBy('id', 'desc')->paginate(50);
+    public function index(Request $request) {
+        $q = $request->get('q');
+
+        $loans = loan::join('users', 'user_id', '=', 'users.id')
+            ->join('items', 'item_id', '=', 'items.id')
+            ->where('users.name', 'like', '%'.$q.'%')
+            ->orWhere('items.name', 'like', '%'.$q.'%')            
+            ->orderBy('returned', 'asc')
+            ->orderBy('item_user_loans.id', 'desc')
+            ->paginate(50);
         
-        return view('dashboard.beheer', compact('loans'));
+        return view('dashboard.beheer', compact('loans', 'q'));
     }
 
     public function remove(Request $request, $loanId) {
