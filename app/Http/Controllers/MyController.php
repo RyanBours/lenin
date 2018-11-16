@@ -16,15 +16,20 @@ class MyController extends Controller {
         $this->middleware('auth');
     }
 
-    public function index() {
+    public function index(Request $request) {
         /**
          * GET
          * Returns My view with loans from the user
          * @return view
          */
+        $q = $request->get('q');
+
         $loans = loan::where('user_id', '=', Auth::id())
+            ->join('items', 'item_id', '=', 'items.id')
+            ->where('items.name', 'like', '%'.$q.'%')
             ->orderBy('returned', 'asc')
-            ->get();
-        return view('dashboard.my', compact('loans'));
+            ->orderBy('item_user_loans.id', 'desc')
+            ->paginate(20);
+        return view('dashboard.my', compact('loans', 'q'));
     }
 }
