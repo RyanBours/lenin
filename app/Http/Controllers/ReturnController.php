@@ -11,15 +11,25 @@ class ReturnController extends Controller {
      *
      * @return void
      */
-    public function __construct() {
-    }
+    public function __construct() {}
     
     public function index() {
+        /**
+         * GET
+         * Returns return view with cart_return from session
+         * @return view
+         */
         $cart = session('cart_return');
         return view('return', compact('cart'));
     }
 
     public function add(Request $request) {
+        /**
+         * POST
+         * Find item and add to cart_return array in session
+         * redirect (with errors) to dashboard and flash on success 
+         * @return redirect
+         */
         $item = Item::where('name', 'like', $request->id)->first();
         $cart = session('cart_return');
 
@@ -37,6 +47,11 @@ class ReturnController extends Controller {
     }
 
     public function remove(Request $request, $item) {
+        /**
+         * POST
+         * Find $item in cart_return session, removes from cart_return array and returns to return page
+         * @return redirect
+         */
         $cart = session()->pull('cart_return', []);
         if(($key = array_search($item, $cart)) !== false) {
             unset($cart[$key]);
@@ -46,11 +61,23 @@ class ReturnController extends Controller {
     }
 
     public function clear(Request $request) {
+        /**
+         * POST
+         * Clears cart_return and redirects to return page
+         * @return redirect
+         */
         $request->session()->forget('cart_return');
         return redirect('/return');
     }
 
     public function checkout(Request $request) {
+        /**
+         * POST
+         * updates loans as marked foreach item in the cart_return session
+         * redirect with flash when empty
+         * and clear the cart_return value in session before redirecting to success page
+         * @return redirect
+         */
         $cart = session('cart_return');
 
         if (!$cart) {

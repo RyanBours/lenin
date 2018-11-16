@@ -17,6 +17,11 @@ class MyController extends Controller {
     }
 
     public function index() {
+        /**
+         * GET
+         * Returns My view with loans from the user
+         * @return view
+         */
         $loans = loan::where('user_id', '=', Auth::id())
             ->orderBy('returned', 'asc')
             ->get();
