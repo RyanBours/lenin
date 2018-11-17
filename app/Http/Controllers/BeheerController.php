@@ -14,8 +14,14 @@ class BeheerController extends Controller {
     public function __construct() {
         $this->middleware('auth');
     }
-
+    
     public function index(Request $request) {
+        /**
+         * GET
+         * Returns beheer index view with search query result
+         * query: find loan by name of item/user return 50 loans per page
+         * @return view
+         */
         $q = $request->get('q');
 
         $loans = loan::join('users', 'user_id', '=', 'users.id')
@@ -30,7 +36,11 @@ class BeheerController extends Controller {
     }
 
     public function remove(Request $request, $loanId) {
-        // remove loan
+        /**
+         * POST
+         * Updates Loan and redirects back to beheer page
+         * @return redirect
+         */
         $loan = Loan::where('id', 'like', $loanId)->first();
         if ($loan) $loan->updateReturned();
         return redirect('dashboard/beheer');

@@ -23,6 +23,11 @@ class ItemController extends Controller {
     }
 
     public function index(Request $request) {
+        /**
+         * GET
+         * Returns item view with search query result
+         * @return view
+         */
         $q = $request->get('q');
 
         $items = Item::where('name', 'like', '%'.$q.'%')
@@ -31,15 +36,30 @@ class ItemController extends Controller {
     }
 
     public function add() {
+        /**
+         * GET
+         * Returns Add view
+         * @return view
+         */
         return view('dashboard.item.add');
     }
 
     public function edit($id) {
+        /**
+         * GET
+         * Returns Edit view with selected item
+         * @return view
+         */
         $item = Item::find($id);
         return view('dashboard.item.edit', compact('item'));
     }
 
     public function update($id, Request $request) {
+        /**
+         * POST
+         * Validate the input and Updates the item and redirects to item index 
+         * @return redirect
+         */
         $item = Item::find($id);
         $originalName = $item->name;
 
@@ -68,8 +88,12 @@ class ItemController extends Controller {
         return redirect('/dashboard/item');
     }
 
-    // Add item
     public function post(Request $request) {
+        /**
+         * POST
+         * Validate the input and creates a new item, stores it and redirec to item index
+         * @return redirect
+         */
         $validator = Validator::make($request->all(), [
             'name' => 'required|unique:items|max:255',
             'Leenduur' =>'numeric|min:0',

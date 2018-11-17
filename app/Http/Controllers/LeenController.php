@@ -19,12 +19,22 @@ class LeenController extends Controller {
     }
     
     public function index() {
+        /**
+         * GET
+         * Returns leen view with cart_leen from session
+         * @return view
+         */
         $cart = session('cart_leen');
         return view('dashboard.leen', compact('cart'));
     }
 
     public function add(Request $request) {
-        // add to cart session
+        /**
+         * POST
+         * Find item and add to cart_leen array in session
+         * redirect (with errors) to dashboard and flash on success 
+         * @return redirect
+         */
         $item = Item::where('name', 'like', $request->id)->first();
         $cart = session('cart_leen');
 
@@ -42,7 +52,11 @@ class LeenController extends Controller {
     }
 
     public function remove(Request $request, $item) {
-        // remove from cart session
+        /**
+         * POST
+         * Find $item in cart_leen session, removes from cart_leen array and returns to leen page
+         * @return redirect
+         */
         $cart = session()->pull('cart_leen', []);
         if(($key = array_search($item, $cart)) !== false) {
             unset($cart[$key]);
@@ -52,12 +66,23 @@ class LeenController extends Controller {
     }
 
     public function clear(Request $request) {
-        // clears cart session
+        /**
+         * POST
+         * Clears cart_leen and redirects to leen page
+         * @return redirect
+         */
         $request->session()->forget('cart_leen');
         return redirect('dashboard/leen');
     }
 
     public function checkout(Request $request) {
+        /**
+         * POST
+         * Creates loans foreach item in the cart_leen session
+         * redirect with flash when empty
+         * and clear the cart_leen value in session before redirecting to success page
+         * @return redirect
+         */
         $cart = session('cart_leen');
         if (!$cart) {
             $request->session()->flash('status', 'cart is leeg');
@@ -65,7 +90,11 @@ class LeenController extends Controller {
             return redirect('/dashboard/leen');
         }
         foreach($cart as $item) {
-            loan::create(['user_id'=>Auth::id(), 'item_id'=>$item->id, 'expected_end_date' => Carbon::createFromFormat('Y-m-d H:i:s', Carbon::now())->addDays($item->max_loan_duration)]);
+            loan::create([
+                'user_id'=>Auth::id(),
+                'item_id'=>$item->id,
+                'expected_end_date' => Carbon::createFromFormat('Y-m-d H:i:s', Carbon::now())->addDays($item->max_loan_duration)
+            ]);
         }
         
         $request->session()->forget('cart_leen');
